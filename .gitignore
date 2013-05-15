@@ -1,0 +1,15 @@
+# phpstorm project files
+.idea
+.svn
+composer.phar
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+

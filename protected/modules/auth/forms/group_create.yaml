@@ -1,0 +1,7 @@
+slug:
+   html:textInput   
+name:
+   html:textInput
+pid:
+   html:dropDownList
+   value:php:value

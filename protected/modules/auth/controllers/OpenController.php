@@ -1,0 +1,41 @@
+<?php namespace app\modules\auth\controllers;
+/**
+*  veryone can visit 
+* 
+* @author Sun < taichiquan@outlook.com >
+*/
+use yii\web\Controller;
+use app\modules\auth\models\LoginForm; 
+ 
+
+class OpenController extends Controller
+{ 
+	public function actions()
+	{
+		return array(
+			'captcha' => array(
+				'class' => 'yii\web\CaptchaAction',
+			),
+		);
+	}
+	
+	public function actionLogin()
+	{
+		$model = new LoginForm();
+		if ($this->populate($_POST, $model) && $model->login()) {
+			redirect(array('auth/site/index'));
+		} else {
+			echo $this->render('login', array(
+				'model' => $model,
+			));
+		}
+	}
+
+	public function actionLogout()
+	{
+		\Yii::$app->getUser()->logout();
+		redirect(array('site/index'));
+	}
+
+	 
+}
