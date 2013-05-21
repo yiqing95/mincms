@@ -23,7 +23,7 @@ js("$(function(){
 	<style>
       body {padding-top: 60px;}
       .hander{cursor:pointer;}
-      .error{ 
+      .new_error{ 
 		background: #FBE6F2;
 		border: 1px solid #D893A1;
 		color: #333;

@@ -30,12 +30,16 @@ return array(
 		'log' => array(
 			'class' => 'yii\logging\Router',
 			'targets' => array(
-				'file' => array(
+				/*array(
 					'class' => 'yii\logging\FileTarget',
 					'levels' => array('error', 'warning'),
-				),
+				),*/
+				array(
+					'class' => 'yii\logging\DebugTarget',
+				)
 			),
 		),
+	
 		/**
 		*
 		*/
@@ -44,8 +48,7 @@ return array(
 			'dsn' => 'mysql:host=localhost;dbname=books',
 			'username' => 'test',
 			'password' => 'test',
-			'charset' => 'utf8',
-			'tablePrefix'=>'',
+			'charset' => 'utf8', 
 			'enableSchemaCache'=> !YII_DEBUG,
 		),
 			
@@ -80,7 +83,5 @@ return array(
         ),
 			
 	),
-	'params' => array(
-		'adminEmail' => 'admin@example.com',
-	),
+	'params' => require(__DIR__ . '/params.php'),
 );

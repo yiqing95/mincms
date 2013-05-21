@@ -41,23 +41,18 @@ class GroupController extends \app\core\AuthController
 			$model = \app\modules\auth\models\Group::find($id); 
 			$ids =  $model->delete_ids;
 			$model->delete();
+		 
 			$n = " #".implode('_',$ids);
 			echo json_encode(array('id'=>$ids,'class'=>'alert-success','message'=>__('delete group success').$n ));
 			exit;
 		} 
 	}
 	public function actionIndex()
-	{   
-		$query = \app\modules\auth\models\Group::find();
-		$countQuery = clone $query;
-		$pages = new \yii\web\Pagination($countQuery->count());
-		$models = $query->offset($pages->offset)
-		  ->limit($pages->limit)
-		  ->all();
- 		
+	{    
+		$rt = \app\core\Pagination::run('Group'); 
 		echo $this->render('index', array(
-		   'models' => $models,
-		   'pages' => $pages,
+		   'models' => $rt->models,
+		   'pages' => $rt->pages,
 		));
 	}
 

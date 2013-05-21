@@ -9,7 +9,7 @@ class User extends \app\core\ActiveRecord implements \yii\web\Identity
 	
 	public static function tableName()
     {
-        return '{{auth_users}}';
+        return 'auth_users';
     } 
     function scenarios() {
 		 return array( 
@@ -52,14 +52,14 @@ class User extends \app\core\ActiveRecord implements \yii\web\Identity
 	{
 	 	return $this->hasMany('Order', array('customer_id' => 'id'));
 	}
-	public function events()
-    {
-        return array(
-            'TimeBehavior' => array(
-                 'class'=>'app\components\TimeBehavior', 
-              )
-        );
-    }
+	public function behaviors()
+	{
+	  return array(
+	      'timestamp' => array(
+	          'class' => 'app\core\TimeBehavior',
+	      ),
+	  );
+	} 
 	
 	public static function findIdentity($id)
 	{

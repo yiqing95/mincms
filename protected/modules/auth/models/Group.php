@@ -7,12 +7,12 @@ class Group extends \app\core\ActiveRecord
 	public $old_pid;
 	public static function tableName()
     {
-        return '{{auth_groups}}';
+        return 'auth_groups';
     } 
     function scenarios() {
 		 return array( 
 		 	'create' => array('slug','name','pid'),
-		  	'update' => array('name','pid'),
+		  	'update' => array('slug','name','pid'),
 		 );
 	}
 	public function rules()
@@ -39,6 +39,8 @@ class Group extends \app\core\ActiveRecord
 		if($data){
 			$out = \app\core\Arr::tree($data);  
 			$out = $first+$out; 
+		}else{
+			$out = $first;
 		}
 		return $out;
 	}
@@ -53,12 +55,15 @@ class Group extends \app\core\ActiveRecord
 		 	foreach($out as $k=>$v){
 		 		$in[] = $k;
 		 	}
+		}else{
+			$in[] = $this->id;
 		}
 		return $in;
 	}
 	function beforeDelete(){
-		parent::beforeDelete();  
+		parent::beforeDelete();    
 	 	static::deleteAll(array('id'=>$this->delete_ids)); 
+	 	return true;
 	}
 	function afterFind(){
 		parent::afterFind();

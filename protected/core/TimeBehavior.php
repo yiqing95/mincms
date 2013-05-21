@@ -1,21 +1,37 @@
 <?php
-namespace app\components;
+namespace app\core;
+/**
+ * ~~~
+ * public function behaviors()
+ * {
+ *     return array(
+ *         'timestamp' => array(
+ *             'class' => 'app\core\TimeBehavior',
+ *         ),
+ *     );
+ * }
+ * ~~~
+*/
 class TimeBehavior extends \yii\base\Behavior{
 	public $createAttribute = 'created';
 	public $updateAttribute = 'updated';
 	public function events()
 	{
 		return array(
-			'beforeSave'=>'setTime',
+			ActiveRecord::EVENT_BEFORE_INSERT => 'beforeInsert',
+			ActiveRecord::EVENT_BEFORE_UPDATE => 'beforeUpdate',
 		);
-	}
-
-	public function setTime($event) {
-		echo 1;exit;
-		if ($this->owner->isNewRecord() && ($this->createAttribute !== null)) {
-			$this->owner->{$this->createAttribute} = time();
+	} 
+	public function beforeInsert($event) {
+		if ($this->createAttribute !== null) {
+			$this->owner->{$this->createAttribute} = time(); 
 		} 
-		$this->owner->{$this->updateAttribute} = time(); 
+	}
+	public function beforeUpdate()
+	{
+		if ($this->updateAttribute !== null) {
+			$this->owner->{$this->updateAttribute} = time(); 
+		}
 	}
 	
 }

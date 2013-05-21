@@ -65,17 +65,17 @@ function publish($assets){
 	$base = \Yii::$app->view->getAssetManager()->publish($assets);
 	return $base[1];
 }
-function css_file($file){
-	\Yii::$app->view->registerCssFile($file); 
+function css_file($url, $options = array(), $key = null){
+	\Yii::$app->view->registerCssFile($url, $options , $key); 
 }
-function js_file($file){
-	\Yii::$app->view->registerJsFile($file); 
+function js_file($url, $options = array(), $key = null){
+	\Yii::$app->view->registerJsFile($url, $options , $key); 
 }
-function css($css, $options = array(), $key = null){
-	\Yii::$app->view->registerCss($css, $options, $key); 
+function css($css){
+	\Yii::$app->view->registerCss($css); 
 }
-function js($css, $options = array(), $key = null){
-	\Yii::$app->view->registerJs($css, $options, $key); 
+function js($js){
+	\Yii::$app->view->registerJs($js); 
 }
 
 /**
@@ -104,8 +104,8 @@ function url_action($url,$parmas=null){
 * @param  string $str 
 * @param  string $file 
 */
-function __($message, $params = array(), $language = null){
-	return Yii::t(trim($message), $params, $language);
+function __($message,$category='app',  $params = array(), $language = null){
+	return Yii::t($category, trim($message), $params = array(), $language = null);
 }
 /**
 * set cookie or get cookie

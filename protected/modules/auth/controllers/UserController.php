@@ -46,16 +46,11 @@ class UserController extends \app\core\AuthController
 	}
 	public function actionIndex()
 	{   
-		$query = \app\modules\auth\models\User::find();
-		$countQuery = clone $query;
-		$pages = new \yii\web\Pagination($countQuery->count());
-		$models = $query->offset($pages->offset)
-		  ->limit($pages->limit)
-		  ->all();
+		$rt = \app\core\Pagination::run('User');  
  		
 		echo $this->render('index', array(
-		   'models' => $models,
-		   'pages' => $pages,
+		   'models' => $rt->models,
+		   'pages' => $rt->pages,
 		));
 	}
 
