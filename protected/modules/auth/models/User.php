@@ -47,10 +47,26 @@ class User extends \app\core\ActiveRecord implements \yii\web\Identity
 		}
 		return true;
 	}
-	//return $this->hasOne('Country', array('id' => 'country_id'));
-	public function getOrders()
+	/**
+	* 生成权限列表
+	*/
+	static function access($id){
+		$model = static::find($id);  
+    	if($model->groups){
+    		//调用 models/Group 
+	    	foreach($model->groups as $g){ 
+	    		//调用 models/GroupAccess
+	    		foreach($g->Access as $gc){  
+	    			$list[] = $gc->access();
+	    		} 
+	    	}
+    	}
+    	return $list;
+	}
+ 
+	public function getGroups()
 	{
-	 	return $this->hasMany('Order', array('customer_id' => 'id'));
+	 	return $this->hasMany('UserGroup', array('user_id' => 'id'));
 	}
 	public function behaviors()
 	{
@@ -138,5 +154,11 @@ class User extends \app\core\ActiveRecord implements \yii\web\Identity
 	public function validatePassword($password)
 	{
 		return crypt($password,$this->password)===$this->password;
+	}
+	/**
+	* 绑定用户组
+	*/
+	function getBindGroup(){
+		return "<a href='".url('auth/group/bind',array('id'=>$this->id))."'>".__('bind group')."</a>";
 	}
 }

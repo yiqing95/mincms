@@ -22,13 +22,15 @@ class Group extends \app\core\ActiveRecord
 			array('slug,name','unique'),  
 			array('slug', 'match','pattern'=>'/^[a-z_]/', 'message'=>__('match')), 
 		);
-	}  
-  
-	//return $this->hasOne('Country', array('id' => 'country_id'));
-	public function getOrders()
+	}   
+	/**
+	* 一个组里面有多个权限
+	*/
+	public function getAccess()
 	{
-	 	return $this->hasMany('Order', array('customer_id' => 'id'));
+	 	return $this->hasMany('GroupAccess', array('group_id' => 'id'));
 	}
+	 
 	 
     /**
     * for yaml dropDownList
@@ -99,8 +101,15 @@ class Group extends \app\core\ActiveRecord
 	function getGroup_tree(){
 		if(0 == $this->pid) return __('root');
 		$data = static::find()->all();  
-		$out = \app\core\Arr::parentTree($data,$this->id); 
-	 	return implode('<i class="icon-arrow-right"></i>',$out); 
+		$out = \app\core\Arr::parentTree($data,$this->pid); 
+	 	return implode("<br>",$out); 
+	}
+	
+	/**
+	* 绑定权限
+	*/
+	function getBindAccess(){
+		return "<a href='".url('auth/auth/index',array('id'=>$this->id))."'>".__('bind access')."</a>";
 	}
 	 
 }

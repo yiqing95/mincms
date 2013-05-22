@@ -1,4 +1,7 @@
 <?php namespace app\modules\auth\controllers; 
+use \app\modules\auth\models\Group;
+use \app\modules\auth\models\UserGroup;
+use \app\core\Arr;
 /**
 *  用户组
 * 
@@ -6,6 +9,33 @@
 */
 class GroupController extends \app\core\AuthController
 { 
+	/**
+	* 用户绑定到组
+	*/
+	public function actionBind($id)
+	{ 	
+		$id = (int)$id;
+		$model = \app\modules\auth\models\User::find($id);
+		foreach($model->groups as $g){
+			$groups[] =  $g->group_id;
+		}  
+		$rows = Group::find()->all();
+		$rows = Arr::model_tree($rows); 
+ 	 	if($_POST){
+ 	 		$group = $_POST['group'];
+ 	 	 	//绑定用户到组
+ 	 		UserGroup::UserGroupSave($id,$group); 
+ 	 		flash('success',__('bin user group success'). " # ".$id);
+ 	 		redirect(url('auth/user/index')); 
+ 	 	}
+ 	  
+		echo $this->render('bind',array(
+			'rows'=>$rows, 
+			'groups'=>$groups,
+			'id'=>$id,
+		 
+		));
+	}
 	public function actionCreate()
 	{   
 		$this->view->title = __('create group');

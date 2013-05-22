@@ -92,6 +92,12 @@ function url($url,$parmas=null){
 	}
 	return app\core\Html::url($url,$parmas);
 }
+function base_url(){
+	return Yii::$app->request->baseUrl;
+}
+function base_path(){
+	return Yii::$app->basePath.'/';
+}
 function url_action($url,$parmas=null){ 
 	$url = \Yii::$app->controller->id.'/'.$url;
 	$module = \Yii::$app->controller->module->id; 

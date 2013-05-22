@@ -22,7 +22,7 @@ class Access extends \app\core\ActiveRecord
 				$model->save();
 			}
 			$id = $model->id;
-			foreach($values as $v){
+			foreach($values as $v=>$op){
 				$model = static::find(array('name'=>$v,'pid'=>$id));
 				if(!$model){
 					$model = new self;

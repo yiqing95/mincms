@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 15 日 06:01
+-- 生成日期: 2013 年 05 月 22 日 10:03
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -28,10 +28,33 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `auth_access` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `pid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='权限列表(仅对数据库表的字段)' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='权限列表(仅对数据库表的字段)' AUTO_INCREMENT=18 ;
+
+--
+-- 转存表中的数据 `auth_access`
+--
+
+INSERT INTO `auth_access` (`id`, `name`, `pid`) VALUES
+(1, 'auth.auth', 0),
+(2, 'index', 1),
+(3, 'auth.group', 0),
+(4, 'create', 3),
+(5, 'update', 3),
+(6, 'delete', 3),
+(7, 'index', 3),
+(8, 'auth.site', 0),
+(9, 'index', 8),
+(10, 'auth.user', 0),
+(11, 'create', 10),
+(12, 'update', 10),
+(13, 'delete', 10),
+(14, 'index', 10),
+(15, 'svn.site', 0),
+(16, 'index', 15),
+(17, 'bind', 3);
 
 -- --------------------------------------------------------
 
@@ -45,17 +68,31 @@ CREATE TABLE IF NOT EXISTS `auth_groups` (
   `name` varchar(200) NOT NULL COMMENT '用户组名',
   `pid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户组信息' AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户组信息' AUTO_INCREMENT=30 ;
 
 --
 -- 转存表中的数据 `auth_groups`
 --
 
 INSERT INTO `auth_groups` (`id`, `slug`, `name`, `pid`) VALUES
-(1, 'admin', '管理员', 0),
-(2, 'edit', '编辑', 1),
-(3, 'test', '测试会员', 0),
-(4, 'small_edit', '小编', 2);
+(15, 'acc', 'cccc', 12),
+(13, 'test', 'test', 0),
+(14, 'aaa', 'aa', 16),
+(16, 'eee', 'eeee', 12),
+(12, 'admin', '管理员', 0),
+(17, 'test2', '我是有', 12),
+(18, 'qq', 'qq', 17),
+(19, 'ww', 'www', 18),
+(20, 'rr', 'rr', 19),
+(21, 'aes', '23223', 13),
+(22, 'adfsd', 'sdfsdf', 21),
+(23, 'ddd', 'ddd', 15),
+(24, 'aaaa', 'aadfadsf', 0),
+(25, 'wewrwe', 'rwerwer', 0),
+(26, 'adf', 'sdf', 24),
+(27, 'tre', 'adf', 25),
+(28, 'qqq', '2222222', 27),
+(29, 'erer', '再测试', 28);
 
 -- --------------------------------------------------------
 
@@ -68,7 +105,15 @@ CREATE TABLE IF NOT EXISTS `auth_group_access` (
   `group_id` int(11) NOT NULL COMMENT '用户组ID',
   `access_id` int(11) NOT NULL COMMENT '权限列表ID',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户组与权限列表 关系' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户组与权限列表 关系' AUTO_INCREMENT=94 ;
+
+--
+-- 转存表中的数据 `auth_group_access`
+--
+
+INSERT INTO `auth_group_access` (`id`, `group_id`, `access_id`) VALUES
+(93, 15, 9),
+(92, 15, 2);
 
 -- --------------------------------------------------------
 
@@ -87,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `auth_users` (
   `created` int(11) NOT NULL COMMENT '创建时间',
   `updated` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户(管理员)' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户(管理员)' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `auth_users`
@@ -107,7 +152,15 @@ CREATE TABLE IF NOT EXISTS `auth_user_group` (
   `user_id` int(11) NOT NULL COMMENT '用户ID',
   `group_id` int(11) NOT NULL COMMENT '用户组ID',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户与组 对应关系' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户与组 对应关系' AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `auth_user_group`
+--
+
+INSERT INTO `auth_user_group` (`id`, `user_id`, `group_id`) VALUES
+(2, 1, 21),
+(3, 1, 15);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

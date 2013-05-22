@@ -9,6 +9,7 @@ use yii\widgets\Menu;
 $this->registerAssetBundle('bootstrap');
 //select2
 widget('select2',array('i18n'=>true)); 
+widget('select2');
 js("$(function(){
 	$('.flash-message').delay(2500).fadeOut();
 });");
@@ -30,6 +31,7 @@ js("$(function(){
 		margin: 10px 0 5px 0;
 		padding: 10px; 
       }
+      .form-actions{padding-left: 10px;}
     </style>
 </head>
 <body>

@@ -1,6 +1,6 @@
 <?php namespace app\modules\auth\controllers; 
 /**
-*  ¹ÜÀíÔ±¹ÜÀí
+*  ç®¡ç†å‘˜ç®¡ç†
 * 
 * @author Sun < taichiquan@outlook.com >
 */

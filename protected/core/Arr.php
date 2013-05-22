@@ -15,7 +15,7 @@ class Arr
  
 	/**
 	* 向下生成tree,返回的是数组 
-	*
+	* 给select框使用
 	
 	$all = \app\modules\auth\models\Group::find()->all(); 
 	$d = \app\core\Arr::tree($out);
@@ -23,15 +23,19 @@ class Arr
 	dump($d);
 	*/
 	static function model_tree($data=array(),$value='name',$id='id',$pid='pid',$root=0){   
-		foreach($data as $v){
-			$out[$v->$id] = $v->attributes;
-		} 
+		foreach($data as $v){ 
+			$v = (object)$v;
+			if($v->attributes)
+				$out[$v->$id] = $v->attributes;
+			else
+				$out[$v->$id] = (array)$v;
+		}  
 		return static::tree($out,$value,$id,$pid,$root);  
 	 
 	}
 	/**
 	* 向下生成tree,返回的是数组 
-	*
+	* 给select框使用
 	
 	$all = \app\modules\auth\models\Group::find()->all();
 	foreach($all as $v){
@@ -42,25 +46,25 @@ class Arr
 	dump($d);
 	*/
 	static function tree($data=array(),$value='name',$id='id',$pid='pid',$root=0){    
-		$ids = static::_tree_id($data,$value,$id,$pid,$root); 
+		$ids = static::_tree_id($data,$value,$id,$pid,$root);    
 		$out = static::loop($data,$ids,$value);  
 		return $out;
 	}
 	/**
 	* 给tree方法使用。
 	*/
-	static function loop($data,$ids,$value){
+	static function loop($data,$ids,$value,$j=0){   
 		$span = ""; 
-		for($i=0;$i<static::$_j;$i++){
-			$span .= "  "; 
-		}
-		static::$_j++;
+		for($i=0;$i<$j;$i++){
+			$span .= "    "; 
+		} 
+		$j++; 
 		if(is_array($ids)){
-			foreach($ids as $id=>$vo){ 
-				static::$tree[$id] = $span . $data[$id][$value];
-			 
-				static::loop($data,$vo,$value);
+			foreach($ids as $id=>$vo){  
+				static::$tree[$id] = $span . $data[$id][$value]; 
+				static::loop($data,$vo,$value,$j); 
 			}
+			$j = 0; 
 		}
 		return static::$tree;
 	}
