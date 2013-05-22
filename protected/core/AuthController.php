@@ -10,20 +10,20 @@ class AuthController extends Controller
 	public $allowAccess = array();
 	function init(){
 		parent::init(); 
-	 	language('language_');  
-		if(\Yii::$app->user->isGuest){
-			flash('error',__('Please Login First'));
+	 	language('language_'); 
+	 	if(\Yii::$app->user->isGuest){
+			flash('error',__('login first'));   
 			redirect(url('auth/open/login'));
-		}
-	 
-	 	 
-	 	
+		}    
 	}
 	/**
 	* request 前
 	*/
 	function beforeAction($action){  
-		parent::beforeAction($action);  
+		parent::beforeAction($action);   
+		if(\Yii::$app->user->isGuest){ 
+			exit;
+		}
 		//判断用户是否有权限
 		$url = $action->controller->id.'.'.$action->controller->action->id;
 		$module = $action->controller->module->id; 
@@ -38,6 +38,7 @@ class AuthController extends Controller
     */
     protected function checkUserAccess($action_id){  
     	$uid = \Yii::$app->user->identity->id;//当前用户ID
+     
     	if(in_array($uid,$this->supperUsers)) return true; 
     	if(is_array($this->allowAccess) && in_array($action_id,$this->allowAccess)) return; 
     	$access = \app\modules\auth\models\User::access($uid);  

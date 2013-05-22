@@ -10,7 +10,7 @@ $m = array(
 		'label'=>'Auth System',
 		'des'=>"Auth Control Your Database Table's Fields",
 		'url'=>'auth/site/index',
-		'progress'=>5
+		'progress'=>100
 	),
 	'payment'=>array(
 		'label'=>'Payment System',

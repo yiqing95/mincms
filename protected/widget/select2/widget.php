@@ -23,13 +23,13 @@ class Widget extends \yii\base\Widget
 				    formatResult: format,
 				    formatSelection: format,
 				    escapeMarkup: function(m) { return m; }
-				}).change(function(){ 
-					var v = $(this).val();
-					window.location.href = '".url(true)."?language='+v;
+				}).change(function(){  
+					$('#i18nForm').submit();
 				});
 				
 				;
 			});");
+			echo $this->render('@app/widget/select2/views/form');
 		}else{
 		    js("
 		    	$(function(){

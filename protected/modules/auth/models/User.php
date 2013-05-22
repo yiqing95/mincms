@@ -51,6 +51,7 @@ class User extends \app\core\ActiveRecord implements \yii\web\Identity
 	* 生成权限列表
 	*/
 	static function access($id){
+		if(!$id) return false;
 		$model = static::find($id);  
     	if($model->groups){
     		//调用 models/Group 

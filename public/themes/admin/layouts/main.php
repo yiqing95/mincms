@@ -8,7 +8,7 @@ use yii\widgets\Menu;
  */
 $this->registerAssetBundle('bootstrap');
 //select2
-widget('select2',array('i18n'=>true)); 
+
 widget('select2');
 js("$(function(){
 	$('.flash-message').delay(2500).fadeOut();
@@ -51,22 +51,11 @@ js("$(function(){
 				'submenuTemplate'=>'<ul class="dropdown-menu">{items}</ul>',
 				'items' => app\core\Menu::get(),
 			)); ?>
-			<?php if(!Yii::$app->user->isGuest){?>  
-				<a class="navbar-form pull-right btn" href="<?php echo url('auth/open/logout');?>"><?php echo __('logout')." (".\Yii::$app->user->identity->username.")";?></a>
-			<?php }?>
-			<div style="padding-top: 6px;padding-right: 10px;">		
-				<select id='i18n' class="pull-right " style='width:100px;'>
-		      	  <?php $i18n = array(
-		      		'zh_cn'=>'Chinese',
-		      	  	'en_US'=>'US',
-		      		
-		      		);
-		      		foreach($i18n as $k=>$v){
-		      		?>
-		      	   <option value="<?php echo $k;?>" <?php if(language() == $k ){?> selected <?php }?>> <?php echo __($v);?></option>
-		      	  <?php }?>
-		      </select>
-	      </div> 
+			
+		 		
+			<div style="padding-top: 6px;">	
+				<?php echo widget('select2',array('i18n'=>true)); ?>
+			</div>
       </div><!--/.nav-collapse -->
       
     </div>

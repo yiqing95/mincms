@@ -73,7 +73,7 @@ return array(
 	'bindgroup'=>'绑定组',
 	'bind group'=>'绑定组',
 	'save user group'=>'绑定用户到组',
-	''=>'',
+	'login first'=>'请先登录',
 	''=>'',
 	''=>'',
 	''=>'',

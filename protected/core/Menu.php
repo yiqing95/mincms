@@ -17,8 +17,7 @@ class Menu
 			$file = \Yii::$app->basePath."/modules/{$k}/Menu.php";
 			if(file_exists($file)){
 				$cls = "app\modules\\".$k."\Menu";
-				$menus = $cls::add();
-				
+				$menus = $cls::add(); 
 				foreach($menus as $key=>$val){
 					$menu[$key] = array('label' => __($key), 'url' =>'#','itemOptions'=>array(
 							'class'=>'dropdown ',  
@@ -34,6 +33,24 @@ class Menu
 				}
 			}
 		}
+	    if(!\Yii::$app->user->isGuest){
+		 	 $menu[] = array(
+		 	 	'label'=>\Yii::$app->user->identity->username,
+		 	 	'url'=>'#',
+		 	 	'itemOptions'=>array(
+		 	 	 	'class'=>'dropdown'
+		 	 	 ),
+		 	 	'template'=>"<a href=\"{url}\" data-toggle='dropdown' class='dropdown-toggle'>{label}</a>",
+		 	 	'items'=>array(
+		 	 	 	array(
+		 	 	 		'label'=>__('logout'),
+		 	 	 		'url'=>array('auth/open/logout')
+		 	 	 	),
+		 	 	 )
+		 	 );
+			 
+		 }
+	// dump($menu);exit;
 		return $menu;
 		 
 	}
