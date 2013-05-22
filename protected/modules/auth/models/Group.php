@@ -36,8 +36,8 @@ class Group extends \app\core\ActiveRecord
 	function value(){
 		$first[0] = __('please select');
 		$data = static::find()->all();
-		if($data){
-			$out = \app\core\Arr::tree($data);  
+		if($data){ 
+			$out = \app\core\Arr::model_tree($data);  
 			$out = $first+$out; 
 		}else{
 			$out = $first;
@@ -50,7 +50,7 @@ class Group extends \app\core\ActiveRecord
 	function getDelete_ids(){
 		$data = static::find()->all();
 		if($data){
-			$out = \app\core\Arr::tree($data,$value='name',$id='id',$pid='pid',$this->id); 
+			$out = \app\core\Arr::model_tree($data,$value='name',$id='id',$pid='pid',$this->id); 
 		 	$out[$this->id] = $this->id;
 		 	foreach($out as $k=>$v){
 		 		$in[] = $k;
@@ -80,7 +80,7 @@ class Group extends \app\core\ActiveRecord
 		if($this->id){ 
 			$data = static::find()->all();
 			if($data){
-				$out = \app\core\Arr::tree($data,$value='name',$id='id',$pid='pid',$this->id); 
+				$out = \app\core\Arr::model_tree($data,$value='name',$id='id',$pid='pid',$this->id); 
 			 	$out[$this->id] = $this->id;
 			}else{
 				$out[$this->id] = $this->id;

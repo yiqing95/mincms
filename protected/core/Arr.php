@@ -11,30 +11,71 @@ class Arr
 	static $_ptree;
 	static $_i = 0;
 	static $_j = 0;
-	static $mark; 
+	static $tree; 
+ 
 	/**
 	* 向下生成tree,返回的是数组 
+	*
+	
+	$all = \app\modules\auth\models\Group::find()->all(); 
+	$d = \app\core\Arr::tree($out);
+	echo 'out:<br>';
+	dump($d);
 	*/
-	static function tree($data=array(),$value='name',$id='id',$pid='pid',$root=0){   static::$_j = 0;
-		foreach($data as $v){  
-			if($v->$pid == $root){   
-			 	if(static::$mark && in_array($v->pid , static::$mark)){
-			 		static::$_j++;
-			 	} else{
-			 		static::$_j = 0;
-			 	}
-				for($i=0;$i<static::$_j;$i++){
-					$span .= "   ";
-				}  
-				static::$mark[] = $v->$id;
-				static::$_tree[$v->$id] = $span.$v->$value;
-				static::$_i++; 
-				static::tree($data,$value,$id,$pid,$v->id);  
-				
-			} 
+	static function model_tree($data=array(),$value='name',$id='id',$pid='pid',$root=0){   
+		foreach($data as $v){
+			$out[$v->$id] = $v->attributes;
 		} 
-	  
-		return static::$_tree;
+		return static::tree($out,$value,$id,$pid,$root);  
+	 
+	}
+	/**
+	* 向下生成tree,返回的是数组 
+	*
+	
+	$all = \app\modules\auth\models\Group::find()->all();
+	foreach($all as $v){
+		$out[$v->id] = $v->attributes;
+	} 
+	$d = \app\core\Arr::tree($out);
+	echo 'out:<br>';
+	dump($d);
+	*/
+	static function tree($data=array(),$value='name',$id='id',$pid='pid',$root=0){    
+		$ids = static::_tree_id($data,$value,$id,$pid,$root); 
+		$out = static::loop($data,$ids,$value);  
+		return $out;
+	}
+	/**
+	* 给tree方法使用。
+	*/
+	static function loop($data,$ids,$value){
+		$span = ""; 
+		for($i=0;$i<static::$_j;$i++){
+			$span .= "  "; 
+		}
+		static::$_j++;
+		if(is_array($ids)){
+			foreach($ids as $id=>$vo){ 
+				static::$tree[$id] = $span . $data[$id][$value];
+			 
+				static::loop($data,$vo,$value);
+			}
+		}
+		return static::$tree;
+	}
+	/**
+	* 返回树状的id结构
+	*/
+	static function _tree_id($data=array(),$value='name',$id='id',$pid='pid',$root=0){  
+		foreach($data as $v){  
+			$v = (object)$v;
+			if($v->$pid == $root){   
+				$s = static::_tree_id($data,$value,$id,$pid,$v->id);    
+				$_tree[$v->$id] = $s;  
+			} 
+		}  
+		return $_tree;
 	}
 	/**
 	* 向上生成tree
