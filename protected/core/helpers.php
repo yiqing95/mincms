@@ -147,6 +147,7 @@ function dump($str){
 function cache_pre($name,$value=null){
 	$file = __DIR__.'/../../runtime/'.md5($name).'.php';
 	if(!$value){
+		if(!file_exists($file)) return false;
 		return unserialize(include $file);
 	} 
 	$str = "<?php return '";

@@ -71,7 +71,7 @@ $m = array(
 		'label'=>'Email System ',
 		'des'=>"send email to anyone",
 		'url'=>'email/site/index',
-		'progress'=>1
+		'progress'=>70
 	),
 	'content'=>array(
 		'label'=>'Content System ',

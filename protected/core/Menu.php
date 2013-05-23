@@ -12,23 +12,25 @@
 class Menu
 { 
 	static function get(){
-		global $modules; 
-		foreach($modules as $k=>$v){
-			$file = \Yii::$app->basePath."/modules/{$k}/Menu.php";
-			if(file_exists($file)){
-				$cls = "app\modules\\".$k."\Menu";
-				$menus = $cls::add(); 
-				foreach($menus as $key=>$val){
-					$menu[$key] = array('label' => __($key), 'url' =>'#','itemOptions'=>array(
-							'class'=>'dropdown ',  
-						),
-						'template'=>"<a href=\"{url}\" data-toggle='dropdown' class='dropdown-toggle'>{label}</a>",
-					);
-					
-					foreach($val as $_k=>$_u){
-						$menu[$key]['items'][] = array('label' => __($_k), 'url' => ($_u),'options'=>array(
-							'class'=>'',
-						));
+		$modules = cache_pre('all_modules'); 
+		if($modules){
+			foreach($modules as $k=>$v){
+				$file = \Yii::$app->basePath."/modules/{$k}/Menu.php";
+				if(file_exists($file)){
+					$cls = "app\modules\\".$k."\Menu";
+					$menus = $cls::add(); 
+					foreach($menus as $key=>$val){
+						$menu[$key] = array('label' => __($key), 'url' =>'#','itemOptions'=>array(
+								'class'=>'dropdown ',  
+							),
+							'template'=>"<a href=\"{url}\" data-toggle='dropdown' class='dropdown-toggle'>{label}</a>",
+						);
+						
+						foreach($val as $_k=>$_u){
+							$menu[$key]['items'][] = array('label' => __($_k), 'url' => ($_u),'options'=>array(
+								'class'=>'',
+							));
+						}
 					}
 				}
 			}
