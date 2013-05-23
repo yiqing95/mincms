@@ -3,10 +3,13 @@
 - Thank you for  Yii Team 
 - [yii2.0](http://github.com/yiisoft/yii2) 
 - [yii2.0 milestones](http://github.com/yiisoft/yii2/issues/milestones)
+
 ### Install
+
 ```
   php composer.phar install  
 ```
+
 after install please visit /public or set public dir as root
 
 ###Work On Yii 2.0 Public Preview 
