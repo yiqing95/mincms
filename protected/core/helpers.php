@@ -93,7 +93,7 @@ function url($url,$parmas=null){
 	return app\core\Html::url($url,$parmas);
 }
 function base_url(){
-	return Yii::$app->request->baseUrl;
+	return Yii::$app->request->baseUrl.'/';
 }
 function base_path(){
 	return Yii::$app->basePath.'/';
@@ -149,4 +149,18 @@ function cache_pre($name,$value=null){
 	$str .= "';";
 	file_put_contents($file,$str);
  
+}
+function auth(){
+	
+}
+/**
+* 判断是否是只能操作自己添加的记录
+*/
+function self($value){
+	$in = app\modules\auth\Auth::in(); 
+	if(false === $in){
+		return false;
+	}else if(in_array($value,$in)){
+		return true;
+	} 
 }

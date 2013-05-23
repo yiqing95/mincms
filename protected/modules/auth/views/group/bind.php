@@ -17,7 +17,16 @@ $this->params['breadcrumbs'][] = __('save user group');
 	'options' => array('class' => 'form-horizontal'),
 	'fieldConfig' => array('inputOptions' => array('class' => 'input-xlarge')),
 )); ?>
- 
+<p>
+<label class="label <?php if($self==1){?> label-info <?php }?>">
+	<input type='checkbox' name='self' value=1 
+		<?php if($self==1){?>
+			checked='checked' 
+		<?php }?>
+		>
+	<?php echo __('myself');?>
+</label>
+</p>
 <?php echo Html::dropDownList('group[]',$groups,$rows,array('multiple'=>'multiple','style'=>'width:300px;'));?>
  
 	<div class="form-actions">

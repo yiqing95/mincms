@@ -9,10 +9,9 @@
  * If you are using Linux you can create a hard link instead, using the following command:
  * ln requirements.php ../requirements.php
  */
- 
 
 // you may need to adjust this path to the correct Yii framework path
-$frameworkPath = __DIR__ . '/../../yii2/yii';
+$frameworkPath = dirname(__FILE__) . '/../yii';
 
 require_once($frameworkPath . '/requirements/YiiRequirementChecker.php');
 $requirementsChecker = new YiiRequirementChecker();

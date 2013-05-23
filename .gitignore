@@ -1,7 +1,9 @@
 # phpstorm project files
 .idea
 .svn
-composer.phar
+runtime
+public/assets
+vendor
 # netbeans project files
 nbproject
 

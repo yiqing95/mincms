@@ -20,7 +20,8 @@ class GroupController extends \app\core\AuthController
 			$groups[] =  $g->group_id;
 		}  
 		$rows = Group::find()->all();
-		$rows = Arr::model_tree($rows); 
+		if($rows)
+			$rows = Arr::model_tree($rows); 
  	 	if($_POST){
  	 		$group = $_POST['group'];
  	 	 	//绑定用户到组
@@ -33,7 +34,7 @@ class GroupController extends \app\core\AuthController
 			'rows'=>$rows, 
 			'groups'=>$groups,
 			'id'=>$id,
-		 
+		 	'self'=>$model->yourself
 		));
 	}
 	public function actionCreate()

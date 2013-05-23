@@ -10,10 +10,13 @@ return array(
 		),
 		'js' => array(
 			'js/bootstrap.min.js',
-			'js/jquery.form.js'
+			'js/jquery.form.js',
+			'js/jquery-ui.js'
 		),
 		'depends' => array(
 			'yii',
 		),
 	),
+	
+	 
 );
