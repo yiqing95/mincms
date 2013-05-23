@@ -1,5 +1,6 @@
 # phpstorm project files
 .idea
+composer.lock
 .svn
 runtime
 public/assets
