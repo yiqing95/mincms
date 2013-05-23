@@ -105,6 +105,11 @@ class ModulesController extends \app\core\AuthController
 			}
 			 
 		}
+		/**
+		* reload modules
+		* 重新加载模块
+		*/
+		$this->_modules(); 
 	}
 	public function actionAdd(){ 
 		$id = $_POST['id']; 

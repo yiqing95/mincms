@@ -50,7 +50,12 @@ function flash($type,$message=null){
 		return Yii::$app->session->setFlash($type,$message);
 	return Yii::$app->session->getFlash($type);
 }
-
+/**
+* logined uid
+*/
+function uid(){
+	return \Yii::$app->user->identity->id;
+}
 /**
 * Check Flash Message Exists Or Not
 * @param  string $type  

@@ -12,7 +12,7 @@ class Arr
 	static $_i = 0;
 	static $_j = 0;
 	static $tree; 
- 
+ 	static $deep = 0;
 	/**
 	* 向下生成tree,返回的是数组 
 	* 给select框使用
@@ -68,6 +68,15 @@ class Arr
 		}
 		return static::$tree;
 	}
+	
+	static function deep($arr = array()){
+		foreach($arr as $v){
+			static::$deep++;
+			if(is_array($v))
+				static::deep($v);
+		}
+		return static::$deep;
+	}
 	/**
 	* 返回树状的id结构
 	*/
@@ -99,5 +108,13 @@ class Arr
 		} 
 		static::$_ptree[$parent] = $out[$parent];  
 		return  static::$_ptree;
+	}
+	static function array_in_array($a,$b){
+		$key = serialize($a);
+		foreach($b as $q){
+			$in[] = serialize($q);
+		}
+		if(in_array($key,$in)) return true;
+		return false;
 	}
 }

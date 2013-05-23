@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 23 日 05:56
+-- 生成日期: 2013 年 05 月 23 日 09:51
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `core_modules` (
   `active` tinyint(1) NOT NULL,
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `core_modules`
@@ -136,7 +136,56 @@ CREATE TABLE IF NOT EXISTS `core_modules` (
 
 INSERT INTO `core_modules` (`id`, `name`, `label`, `memo`, `core`, `active`, `sort`) VALUES
 (1, 'core', 'Core', '内核', 1, 1, 0),
-(2, 'auth', 'auth', '权限', 1, 1, 0);
+(2, 'auth', 'auth', '权限', 1, 1, 0),
+(3, 'email', 'email', '邮件', 0, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `email_config`
+--
+
+CREATE TABLE IF NOT EXISTS `email_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_email` varchar(200) NOT NULL,
+  `from_name` varchar(200) NOT NULL,
+  `smtp` varchar(200) NOT NULL,
+  `from_password` varchar(200) NOT NULL,
+  `type` int(11) NOT NULL,
+  `port` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `email_config`
+--
+
+INSERT INTO `email_config` (`id`, `from_email`, `from_name`, `smtp`, `from_password`, `type`, `port`) VALUES
+(1, 'mincms@yeah.net', 'yiiphp', 'smtp.yeah.net', 'gimmNnx0UkZt5Eqf3SLVq/15X2IHkMvtL3qKrrGrpbQ=', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `email_send`
+--
+
+CREATE TABLE IF NOT EXISTS `email_send` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `to_email` varchar(200) NOT NULL,
+  `to_name` varchar(200) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `attach` text NOT NULL,
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `email_send`
+--
+
+INSERT INTO `email_send` (`id`, `to_email`, `to_name`, `title`, `body`, `attach`, `created`) VALUES
+(1, 'yiiphp@qq.com', '', 'aaa', 'cccc', '', 1369302378);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

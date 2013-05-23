@@ -38,6 +38,14 @@ class UserController extends \app\core\AuthController
 	}
 	public function actionDelete($id){
 		if($_POST['action']==1){
+			if($id==1){
+				echo json_encode(array('id'=>array(0),'class'=>'alert-error','message'=>__('supper user can not delete')));
+ 				exit;
+			}
+			if($id === uid()){ 
+				echo json_encode(array('id'=>array(0),'class'=>'alert-error','message'=>__('you can not remove yourself')));
+				exit;
+			}
 			$model = \app\modules\auth\models\User::find($id); 
 			$model->delete();
 			echo json_encode(array('id'=>array($id),'class'=>'alert-success','message'=>__('delete user success')));

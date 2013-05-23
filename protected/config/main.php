@@ -1,16 +1,21 @@
-<?php  global $modules;
-$modules['auth'] = 1;
-$modules['menu'] = 1;
-$modules['core'] = 1; 
+<?php   
+/**
+* load modules
+* 加载模块
+*/
+$modules = cache_pre('all_modules'); 
 $module['debug'] = array(
 	 'class' => "yii\debug\Module"
 );
-foreach($modules as $k=>$v){
-	$module[$k] = array(
-		 'class' => 'app\modules\\'.$k.'\Module'
-    );
+if($modules){
+	foreach($modules as $k=>$v){
+		$module[$k] = array(
+			 'class' => 'app\modules\\'.$k.'\Module'
+	    );
+	}
 }
-$modules = $module;	
+$modules = $module;	 
+
 return array(
 	'id' => 'hello',
 	'timeZone'=>'Asia/Shanghai',
