@@ -24,19 +24,20 @@ class UserGroup extends \app\core\ActiveRecord
 	/**
 	* 保存用户到用户组
 	*/
-	static function UserGroupSave($user_id,$group){
-		static::deleteAll(array('user_id'=>$user_id)); 
+	static function UserGroupSave($user_id,$group){ 
 		\Yii::$app->db->createCommand()
 		->update('auth_users',
 		array('yourself'=>$_POST['self']?1:0),
 		'id=:id',array('id'=>$user_id)
 		)->execute();
-		 
-		foreach($group as $group_id){
-			$model = new self;
-			$model->group_id = $group_id;
-			$model->user_id = $user_id;
-			$model->save();
+		if($group){
+			static::deleteAll(array('user_id'=>$user_id)); 
+			foreach($group as $group_id){
+				$model = new self;
+				$model->group_id = $group_id;
+				$model->user_id = $user_id;
+				$model->save();
+			}
 		}
 	}
 	

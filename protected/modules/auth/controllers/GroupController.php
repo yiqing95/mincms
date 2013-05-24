@@ -9,6 +9,10 @@ use \app\core\Arr;
 */
 class GroupController extends \app\core\AuthController
 { 
+	function init(){
+		parent::init();
+		$this->active = array('auth','auth.group.index');
+	}
 	/**
 	* 用户绑定到组
 	*/
@@ -27,12 +31,13 @@ class GroupController extends \app\core\AuthController
  	 	 	//绑定用户到组
  	 		UserGroup::UserGroupSave($id,$group); 
  	 		flash('success',__('bin user group success'). " # ".$id);
- 	 		redirect(url('auth/user/index')); 
+ 	 		redirect(url('auth/group/bind',array('id'=>$id))); 
  	 	}
  	  
 		echo $this->render('bind',array(
 			'rows'=>$rows, 
 			'groups'=>$groups,
+			'model'=>$model,
 			'id'=>$id,
 		 	'self'=>$model->yourself
 		));

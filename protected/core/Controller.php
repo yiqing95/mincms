@@ -7,20 +7,21 @@ use yii\base\Theme;
 */
 class Controller extends \yii\web\Controller
 { 
-	  
+	//Е░╞Г■╗Г └Х▐°Е█∙
+	public $active;
 	function init(){
 		parent::init();  
 		language(); 
 		/*
 		* load modules 
-		* ╪стьдё©И
+		* Е┼═Х╫╫Ф╗║Е²≈
 		*/
 		if(!cache_pre('all_modules'))
 			$this->_modules(); 
 	}
 	/*
 	* load modules 
-	* ╪стьдё©И
+	* Е┼═Х╫╫Ф╗║Е²≈
 	*/
 	function _modules(){
 		$query = new Query; 

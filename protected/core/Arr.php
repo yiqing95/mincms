@@ -109,12 +109,19 @@ class Arr
 		static::$_ptree[$parent] = $out[$parent];  
 		return  static::$_ptree;
 	}
+	/**
+	* 判断一个数组的值，在另一个数组中。
+	如 array('a') in array('c','a') return true;
+	或  'a' in array('c','a') return true;
+	* $a 支持数据或字符串
+	*/
 	static function array_in_array($a,$b){
-		$key = serialize($a);
-		foreach($b as $q){
-			$in[] = serialize($q);
-		}
-		if(in_array($key,$in)) return true;
-		return false;
+		if(!is_array($b)) return false;
+		if(!is_array($a)) $a = array($a);
+		foreach($a as $v){
+			if(!in_array($v,$b))
+				return false;
+		} 
+		return true;
 	}
 }

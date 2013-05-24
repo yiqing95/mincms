@@ -9,6 +9,10 @@ use app\core\Arr;
 */
 class AuthController extends \app\core\AuthController
 { 
+	function init(){
+		parent::init();
+		$this->active = array('auth');
+	}
 	/**
 	* 用户组绑定权限
 	*/

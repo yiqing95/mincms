@@ -6,7 +6,10 @@ use app\core\Arr;
 */
 class ConfigController extends \app\core\AuthController
 { 
- 	 
+ 	function init(){
+		parent::init();
+		$this->active = array('system','email.config.index');
+	}
 	
 	public function actionIndex()
 	{   

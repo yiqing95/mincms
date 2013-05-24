@@ -6,6 +6,11 @@ use  app\modules\email\models\Send;
 class SiteController extends \app\core\AuthController
 {  
 	
+	function init(){
+		parent::init();
+		$this->active = array('extend','email.site.index');
+	}
+	
 	public function actionIndex()
 	{   
  		$model = new Send;

@@ -12,8 +12,10 @@ class ModulesController extends \app\core\AuthController
 	protected $_core_modules = array(
 		'core', 'auth',
 	);
+	
 	function init(){ 
 		parent::init();
+		$this->active = array('system','core.modules.index');
 		$this->_base = base_path().'modules/';
 		foreach($this->_core_modules as $m){
 			$load = Modules::find()->where(array('name'=>$m))->one();

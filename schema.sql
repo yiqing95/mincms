@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 23 日 09:51
+-- 生成日期: 2013 年 05 月 24 日 03:12
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `core_modules` (
   `active` tinyint(1) NOT NULL,
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- 转存表中的数据 `core_modules`
@@ -137,7 +137,23 @@ CREATE TABLE IF NOT EXISTS `core_modules` (
 INSERT INTO `core_modules` (`id`, `name`, `label`, `memo`, `core`, `active`, `sort`) VALUES
 (1, 'core', 'Core', '内核', 1, 1, 0),
 (2, 'auth', 'auth', '权限', 1, 1, 0),
-(3, 'email', 'email', '邮件', 0, 1, 0);
+(3, 'email', 'email', '邮件', 0, 1, 0),
+(4, 'member', 'member', '会员', 0, 1, 0),
+(5, 'oauth', 'oauth', '登录', 0, 1, 0),
+(6, 'cart', 'cart', '购物车', 0, 1, 0),
+(7, 'comment', 'comment', '评论', 0, 1, 0),
+(8, 'content', 'content', '内容', 0, 1, 0),
+(9, 'document', 'document', '手册', 0, 1, 0),
+(10, 'file', 'file', '文件', 0, 1, 0),
+(11, 'image', 'image', '图片', 0, 1, 0),
+(12, 'media', 'media', '文章/相册/视频', 0, 1, 0),
+(13, 'menu', 'menu', '菜单', 0, 1, 0),
+(14, 'payment', 'payment', '支付', 0, 1, 0),
+(15, 'svn', 'svn', 'SVN同步', 0, 1, 0),
+(16, 'tag', 'tag', '标签云', 0, 1, 0),
+(17, 'taxonomy', 'taxonomy', '分类', 0, 1, 0),
+(18, 'i18n', 'i18n', '多语言', 0, 1, 0),
+(19, 'multisite', 'multisite', '多站点', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -178,14 +194,16 @@ CREATE TABLE IF NOT EXISTS `email_send` (
   `attach` text NOT NULL,
   `created` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `email_send`
 --
 
 INSERT INTO `email_send` (`id`, `to_email`, `to_name`, `title`, `body`, `attach`, `created`) VALUES
-(1, 'yiiphp@qq.com', '', 'aaa', 'cccc', '', 1369302378);
+(1, 'yiiphp@qq.com', '', 'aaa', 'cccc', '', 1369302378),
+(2, 'yiiphp@qq.com', '', 'aaa', 'cccc', '', 1369302735),
+(3, 'yiiphp@qq.com', '测试', '这是测试', '看看吧', '', 1369302786);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -11,7 +11,7 @@ $m = array(
 		'des'=>"Auth Control Your Database Table's Fields",
 		'url'=>'auth/site/index',
 		'progress'=>100
-	),
+	), 
 	'payment'=>array(
 		'label'=>'Payment System',
 		'des'=>"Payment Drives like alipay, paypal,bankwire ETC",
@@ -78,6 +78,12 @@ $m = array(
 		'des'=>"custome content manage system",
 		'url'=>'content/site/index',
 		'progress'=>1
+	),
+	'i18n'=>array(
+		'label'=>'I18n System',
+		'des'=>"Translation message",
+		'url'=>'i18n/site/index',
+		'progress'=>70
 	),			
 );
 ?>

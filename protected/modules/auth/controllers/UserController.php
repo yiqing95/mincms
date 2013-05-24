@@ -6,6 +6,10 @@
 */
 class UserController extends \app\core\AuthController
 { 
+	function init(){
+		parent::init();
+		$this->active = array('auth','auth.user.index');
+	}
 	public function actionCreate()
 	{  
 		$this->view->title = __('create user');

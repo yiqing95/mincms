@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = __('save user group');
 ?>
 <blockquote>
 	<h3>
-		<?php echo $model->username;?>  
+		<?php echo $model->email;?>  
 		<small><?php echo Html::encode($this->title); ?></small>
 	</h3>
 </blockquote>
@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = __('save user group');
 	'fieldConfig' => array('inputOptions' => array('class' => 'input-xlarge')),
 )); ?>
 <p>
+<input type='hidden' name='hidden' value=1>
 <label class="label <?php if($self==1){?> label-info <?php }?>">
 	<input type='checkbox' name='self' value=1 
 		<?php if($self==1){?>
