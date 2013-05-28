@@ -12,6 +12,23 @@ use app\core\Arr;
 */
 class Menu
 { 
+	static function active(){
+		if(property_exists(\Yii::$app->controller,'active')){
+			$active = \Yii::$app->controller->active;
+			if(!is_array($active)) $active = array($active);
+			if($active){
+				foreach($active as $v){
+					$v = str_replace('.','/',$v);
+					if(strpos($v,'.')!==false)
+						$ac[] = url($v);
+					else
+						$ac[] = $v;
+				}
+			}
+			$active = $ac;
+	 	}
+	 	return $active;
+	}
 	static function get(){ 
 		/**
 		* 控制器中可设置当前启用的URL
@@ -43,8 +60,8 @@ class Menu
 							unset($actived); 
 							if(Arr::array_in_array($key,$active)){
 								$actived = 'active';
-							}  
-							$menu[$key] = array('label' => __($key), 'url' =>'#','itemOptions'=>array(
+							}    
+							$menu[$key] = array('label' => __($key), 'url' =>'#','options'=>array(
 									'class'=>"dropdown $actived",  
 								),
 								'template'=>"<a href=\"{url}\" data-toggle='dropdown' class='dropdown-toggle'>{label}</a>",
@@ -55,7 +72,7 @@ class Menu
 							if(Arr::array_in_array($_u,$active)){
 								$actived = 'active';
 							}  
-							$menu[$key]['items'][] = array('label' => __($_k), 'url' => ($_u),'itemOptions'=>array(
+							$menu[$key]['items'][] = array('label' => __($_k), 'url' => ($_u),'options'=>array(
 								'class'=>$actived,
 							));
 						}

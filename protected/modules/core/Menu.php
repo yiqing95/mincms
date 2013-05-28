@@ -4,7 +4,7 @@ class Menu
 {
 	static function add(){
 		$menu['system'] = array( 
-			'config'=>array('auth/config/index'),  
+			'config'=>array('core/config/index'),  
 			'modules'=>array('core/modules/index'),
 			
 	 

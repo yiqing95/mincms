@@ -4,11 +4,11 @@
 * 
 * @author Sun < taichiquan@outlook.com >
 */
-use yii\web\Controller;
+use app\core\FrontController;
 use app\modules\auth\models\LoginForm; 
  
 
-class OpenController extends Controller
+class OpenController extends FrontController
 { 
 	public function actions()
 	{
@@ -23,7 +23,7 @@ class OpenController extends Controller
 	{
 		$model = new LoginForm();
 		if ($this->populate($_POST, $model) && $model->login()) {
-			redirect(array('auth/site/index'));
+			redirect(array('auth/config/index'));
 		} else {
 			echo $this->render('login', array(
 				'model' => $model,

@@ -1,0 +1,7 @@
+slug:
+   html:textInput 
+body:
+   html:textArea
+memo:
+   html:textInput
+ 

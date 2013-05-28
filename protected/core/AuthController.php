@@ -8,13 +8,15 @@ class AuthController extends Controller
 { 
 	private $supperUsers = array(1);
 	public $allowAccess = array();
+	public $theme = 'admin';
 	function init(){
 		parent::init(); 
 	 	language('language_'); 
 	 	if(\Yii::$app->user->isGuest){
 			flash('error',__('login first'));   
 			redirect(url('auth/open/login'));
-		}    
+		}     
+	  
 	}
 	/**
 	* request ǰ

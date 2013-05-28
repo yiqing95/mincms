@@ -1,5 +1,15 @@
 <?php 
 return  array (
+  'port' => '端口',
+  'smtp' => 'SMTP',
+  'from_password' => '邮件发送人密码',
+  'from_name' => '邮件发送人名字',
+  'from_email' => '邮件发送人EMAIL',
+  'type' => '类型',
+  'mail settings' => '邮件设置',
+  'add' => '发布',
+  'content type' => '内容类型',
+  'content' => '内容',
   'logout' => '安全退出',
   'translate file' => '翻译文件',
   'translate message' => '翻译语言包',

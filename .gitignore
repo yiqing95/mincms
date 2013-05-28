@@ -4,6 +4,11 @@ composer.lock
 .svn
 runtime
 public/assets
+public/upload
+protected/modules/content
+protected/modules/oauth
+protected/modules/payment
+public/themes/front
 vendor
 # netbeans project files
 nbproject

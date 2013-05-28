@@ -14,8 +14,7 @@ if($modules){
 	    );
 	}
 }
-$modules = $module;	 
-
+$modules = $module;	  
 return array(
 	'id' => 'hello',
 	'timeZone'=>'Asia/Shanghai',
@@ -62,22 +61,29 @@ return array(
 			'enablePrettyUrl'=>true,
 			'suffix'=>'.html',
 			'rules'=>array(
-				'auth'=>'auth/site/index',
+				
 				'post/<id:\d+>/<title:.*?>'=>'post/view',
-				'posts/<tag:.*?>'=>'post/index',
+				'posts/<tag:.*?>'=>'post/index', 
+					
+				/**
+				* default router
+				*/
+				'admin'=>'core/config/index',
+				'image'=>'image/site/index',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),  
 		), 
 		'user' => array(
-			'class' => 'yii\web\User', 
+			'class' => 'yii\web\User',  
+			'autoRenewCookie'=>false,
+			'identityCookie'=>array('name' => 'admin_identity', 'httponly' => true),
 			'identityClass' => 'app\modules\auth\models\User',
 		),
 		'view' => array(
-            'class' => 'yii\base\View',
+            'class' => 'app\core\View',
             'theme' => array(
-            	'class' => 'yii\base\Theme',
-		        'pathMap' => array('@app/views' => '@wwwroot/themes/admin'),
-		        'baseUrl' => '@www/themes/admin',
+            	'class' => 'app\core\Theme',  
+		        'baseUrl' => '@www/themes/'.$theme,
 		    ),
             'renderers' => array( 
                 'twig' => array(

@@ -85,7 +85,7 @@ class GroupController extends \app\core\AuthController
 	}
 	public function actionIndex()
 	{    
-		$rt = \app\core\Pagination::run('Group'); 
+		$rt = \app\core\Pagination::run('\app\modules\auth\models\Group'); 
 		echo $this->render('index', array(
 		   'models' => $rt->models,
 		   'pages' => $rt->pages,

@@ -1,93 +1,109 @@
-<?php
-/**
- * @var yii\base\View $this
- */
+ 	
+<blockquote>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+	</p> <small>Someone famous <cite>Source Title</cite></small>
+</blockquote>
  
-$this->title = 'Welcome';
-
-$m = array(
-	'auth'=>array(
-		'label'=>'Auth System',
-		'des'=>"Auth Control Your Database Table's Fields",
-		'url'=>'auth/site/index',
-		'progress'=>5
-	),
-	'payment'=>array(
-		'label'=>'Payment System',
-		'des'=>"Payment Drives like alipay, paypal,bankwire ETC",
-		'url'=>'payment/site/index',
-		'progress'=>0
-	),
-	'file'=>array(
-		'label'=>'File System',
-		'des'=>"support upload files and manage files,ajax upload ",
-		'url'=>'file/site/index',
-		'progress'=>0
-	),
-	'member'=>array(
-		'label'=>'Member System',
-		'des'=>"Member Login/Register/Change Password/Rest Password Use Email",
-		'url'=>'oauth/site/index',
-		'progress'=>0
-	),
-	'oauth'=>array(
-		'label'=>'Oauth System',
-		'des'=>"Third Login Support Weibo.com<br> QQ Gmail ETC",
-		'url'=>'oauth/site/index',
-		'progress'=>0
-	),
-	
-	'media'=>array(
-		'label'=>'Simple Media System ',
-		'des'=>"Articles  Videos  Albums support <br>easy create articles",
-		'url'=>'media/site/index',
-		'progress'=>0
-	),
-	'cart'=>array(
-		'label'=>'Cart System ',
-		'des'=>"Cart for members, should be install member module",
-		'url'=>'cart/site/index',
-		'progress'=>0
-	),
-	'comment'=>array(
-		'label'=>'Comment System ',
-		'des'=>"Comment very module ,if module support commnet",
-		'url'=>'comment/site/index',
-		'progress'=>0
-	),
-	'tag'=>array(
-		'label'=>'TAG System ',
-		'des'=>"tags in very module ,if module support tag",
-		'url'=>'tag/site/index',
-		'progress'=>0
-	),
-	'taxonomy'=>array(
-		'label'=>'Taxonomy System ',
-		'des'=>"taxonomy in very module ,if module support taxonomy",
-		'url'=>'taxonomy/site/index',
-		'progress'=>0
-	),
-		
-);
-?>
- 
-<h2>Modules</h2>
- 
-
-<!-- Example row of columns -->
-<div class="row-fluid">
-	<?php $str="";$i=1;foreach($m as $k=>$v){ ?>
-	<div class="span4 well">
-		<h3> <?php echo $v['label'];?> </h3> 
-		<p> 
-			<?php echo $v['des'];?> 
-			<div class="progress">
-			  <div class="bar" style="width: <?php echo $v['progress'];?>%;"></div>
+<div class="carousel slide" id="carousel-716710">
+	<ol class="carousel-indicators">
+		<li class="active" data-slide-to="0" data-target="#carousel-716710">
+		</li>
+		<li data-slide-to="1" data-target="#carousel-716710">
+		</li>
+		<li data-slide-to="2" data-target="#carousel-716710">
+		</li>
+	</ol>
+	<div class="carousel-inner">
+		<div class="item active">
+			<img alt="" src="http://lorempixel.com/1600/500/sports/1" />
+			<div class="carousel-caption">
+				<h4>
+					First Thumbnail label
+				</h4>
+				<p>
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				</p>
 			</div>
-		</p> 
-		<p><a class="btn" href="<?php echo url($v['url']);?>"><?php echo __('View');?></a></p>
-	</div>
- 	<?php if($i%3==0) echo "<div class='row-fluid'>"; $str .= "</div>";$i++;} echo $str;?>
-	 
+		</div>
+		<div class="item">
+			<img alt="" src="http://lorempixel.com/1600/500/sports/2" />
+			<div class="carousel-caption">
+				<h4>
+					Second Thumbnail label
+				</h4>
+				<p>
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				</p>
+			</div>
+		</div>
+		<div class="item">
+			<img alt="" src="http://lorempixel.com/1600/500/sports/3" />
+			<div class="carousel-caption">
+				<h4>
+					Third Thumbnail label
+				</h4>
+				<p>
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				</p>
+			</div>
+		</div>
+	</div> <a data-slide="prev" href="#carousel-716710" class="left carousel-control">&#8249;</a> <a data-slide="next" href="#carousel-716710" class="right carousel-control">&#8250;</a>
 </div>
-
+<div class="page-header">
+	<h1>
+		Example page header <small>Subtext for header</small>
+	</h1>
+</div>
+<ul class="thumbnails">
+	<li class="span4">
+		<div class="thumbnail">
+			<img alt="300x200" src="http://lorempixel.com/600/200/people" />
+			<div class="caption">
+				<h3>
+					Thumbnail label
+				</h3>
+				<p>
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				</p>
+				<p>
+					<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+				</p>
+			</div>
+		</div>
+	</li>
+	<li class="span4">
+		<div class="thumbnail">
+			<img alt="300x200" src="http://lorempixel.com/600/200/city" />
+			<div class="caption">
+				<h3>
+					Thumbnail label
+				</h3>
+				<p>
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				</p>
+				<p>
+					<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+				</p>
+			</div>
+		</div>
+	</li>
+	<li class="span4">
+		<div class="thumbnail">
+			<img alt="300x200" src="http://lorempixel.com/600/200/sports" />
+			<div class="caption">
+				<h3>
+					Thumbnail label
+				</h3>
+				<p>
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				</p>
+				<p>
+					<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+				</p>
+			</div>
+		</div>
+	</li>
+</ul> 
+	
+ 

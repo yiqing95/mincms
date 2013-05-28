@@ -103,6 +103,10 @@ function base_url(){
 function base_path(){
 	return Yii::$app->basePath.'/';
 }
+function root_path(){
+	return Yii::$app->basePath.'/../public/';
+}
+
 function url_action($url,$parmas=null){ 
 	$url = \Yii::$app->controller->id.'/'.$url;
 	$module = \Yii::$app->controller->module->id; 
@@ -169,4 +173,8 @@ function self($value){
 	}else if(in_array($value,$in)){
 		return true;
 	} 
+}
+function get_config($name){
+	$model = \app\modules\core\models\Config::find(array('slug'=>$name));
+	return $model->body;
 }

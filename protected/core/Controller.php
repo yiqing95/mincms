@@ -7,6 +7,7 @@ use yii\base\Theme;
 */
 class Controller extends \yii\web\Controller
 { 
+	public $theme = 'classic';
 	//启用的菜单
 	public $active;
 	function init(){
@@ -18,6 +19,7 @@ class Controller extends \yii\web\Controller
 		*/
 		if(!cache_pre('all_modules'))
 			$this->_modules(); 
+		
 	}
 	/*
 	* load modules 

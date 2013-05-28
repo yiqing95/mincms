@@ -58,7 +58,7 @@ class UserController extends \app\core\AuthController
 	}
 	public function actionIndex()
 	{    
-		$rt = \app\core\Pagination::run('User');  
+		$rt = \app\core\Pagination::run('\app\modules\auth\models\User');  
  		
 		echo $this->render('index', array(
 		   'models' => $rt->models,

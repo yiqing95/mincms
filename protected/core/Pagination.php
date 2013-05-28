@@ -4,8 +4,7 @@
 */
 class Pagination  
 { 
-	static function run($model){
-		$model = "\app\modules\auth\models\\$model";
+	static function run($model){ 
 		$query = $model::find();
 		$countQuery = clone $query;
 		$pages = new \yii\web\Pagination($countQuery->count());
