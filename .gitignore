@@ -5,7 +5,7 @@ composer.lock
 runtime
 public/assets
 public/upload
-protected/modules/content 
+protected/modules/content
 protected/modules/flickr
 public/themes/front
 public/themes/mincms
