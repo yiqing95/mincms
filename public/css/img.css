@@ -1,0 +1,45 @@
+/* Image blocks */
+
+ul.hover-block li{
+	list-style:none;
+	float:left;
+	width:225px; 
+	height: 170px;
+	position: relative;
+	margin: 5px 4px;
+}
+
+ul.hover-block li a {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 225px;
+	height: 170px;
+	color: #000;
+}
+
+ul.hover-block li a { 
+	text-decoration: none; 
+}
+
+ul.hover-block li .hover-content{
+	position: absolute;
+	z-index: 1000;
+	height: 170px;
+	top: 125px;
+	color: #fff;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+ul.hover-block li .hover-content h6{
+	color: #fff;
+}
+
+ul.hover-block li img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 0;
+	z-index: 500;
+}

@@ -97,6 +97,9 @@ function url($url,$parmas=null){
 	}
 	return app\core\Html::url($url,$parmas);
 }
+function theme_url(){
+	return Yii::$app->view->theme->baseUrl.'/';
+}
 function base_url(){
 	return Yii::$app->request->baseUrl.'/';
 }

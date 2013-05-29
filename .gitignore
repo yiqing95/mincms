@@ -5,9 +5,7 @@ composer.lock
 runtime
 public/assets
 public/upload
-protected/modules/content
-protected/modules/oauth
-protected/modules/payment
+protected/modules/content 
 public/themes/front
 vendor
 # netbeans project files

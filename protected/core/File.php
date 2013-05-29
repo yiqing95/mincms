@@ -56,7 +56,7 @@ class File extends \yii\helpers\Html
 		$data = file_get_contents($old);
 		$uniqid =  md5($data);
 		$query = new Query;
-		$query->select('id,path')->from('file_init')->where(array('uniqid'=>$uniqid));
+		$query->select('id,path')->from('file')->where(array('uniqid'=>$uniqid));
 		$command = $query->createCommand();
 		$row = $command->queryRow(); 
 		if(!$row){ 
@@ -70,7 +70,7 @@ class File extends \yii\helpers\Html
 					'created' =>time(),
 					'admin'=>$this->admin
 				); 
-			\Yii::$app->db->createCommand()->insert('file_init', $data)->execute(); 
+			\Yii::$app->db->createCommand()->insert('file', $data)->execute(); 
 		 
 		}
 		else if(!file_exists(root_path().$row['path'])){  
@@ -79,7 +79,7 @@ class File extends \yii\helpers\Html
 		 
 		$query = new Query;
 		$query->select('id,path,type')
-			->from('file_init')->where(array('uniqid'=>$uniqid));
+			->from('file')->where(array('uniqid'=>$uniqid));
 		$command = $query->createCommand();
 		$row = $command->queryRow(); 
 

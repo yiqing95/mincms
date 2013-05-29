@@ -25,6 +25,7 @@ class Theme extends \yii\base\Theme
 			$this->pathMap = array(
 				'@app/views'=>'@wwwroot/themes/'.$theme
 			);
+			$this->baseUrl = '@www/themes/'.$theme;
 		} 
 	 	parent::init();
 	  

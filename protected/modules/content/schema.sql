@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 27 日 08:36
+-- 生成日期: 2013 年 05 月 29 日 09:53
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -23,87 +23,102 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `media_album`
+-- 表的结构 `content_field`
 --
 
-CREATE TABLE IF NOT EXISTS `media_album` (
+CREATE TABLE IF NOT EXISTS `content_field` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `body` varchar(255) NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
+  `slug` varchar(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `memo` text NOT NULL,
+  `pid` int(11) NOT NULL,
   `created` int(11) NOT NULL,
   `updated` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `content_field`
+--
+
+INSERT INTO `content_field` (`id`, `slug`, `name`, `memo`, `pid`, `created`, `updated`, `uid`) VALUES
+(1, 'posts', '文章', '文章', 0, 0, 0, 0),
+(2, 'posts', '文章', '', 1, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_float`
+--
+
+CREATE TABLE IF NOT EXISTS `content_float` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` float NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `media_img`
+-- 表的结构 `content_int`
 --
 
-CREATE TABLE IF NOT EXISTS `media_img` (
+CREATE TABLE IF NOT EXISTS `content_int` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `album_id` int(11) NOT NULL,
-  `fid` int(11) NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `media_news`
+-- 表的结构 `content_text`
 --
 
-CREATE TABLE IF NOT EXISTS `media_news` (
+CREATE TABLE IF NOT EXISTS `content_text` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `slug` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
+  `value` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `media_post`
+-- 表的结构 `content_validate`
 --
 
-CREATE TABLE IF NOT EXISTS `media_post` (
+CREATE TABLE IF NOT EXISTS `content_validate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
+  `field_id` int(11) NOT NULL,
+  `name` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `media_video`
+-- 表的结构 `content_varchar`
 --
 
-CREATE TABLE IF NOT EXISTS `media_video` (
+CREATE TABLE IF NOT EXISTS `content_varchar` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `fid` int(11) NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_widget`
+--
+
+CREATE TABLE IF NOT EXISTS `content_widget` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `memo` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

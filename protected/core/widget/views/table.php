@@ -41,7 +41,7 @@
 </table>
 <?php if($pages){?>
 	<div class='pagination'>
-	<?php  \yii\widgets\LinkPager::widget(array(
+	<?php  echo \yii\widgets\LinkPager::widget(array(
 	      'pagination' => $pages,
 	  ));?>
 	</div>

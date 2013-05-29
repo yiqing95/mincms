@@ -1,60 +1,80 @@
- 	
 <blockquote>
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
 	</p> <small>Someone famous <cite>Source Title</cite></small>
 </blockquote>
+<?php 
+$rows[] = array(
+	'title'=>'test',
+	'body'=>'test',
+	'img'=>'http://responsivewebinc.com/premium/metro/purple/img/photos/tn_2.jpg',
+	'url'=>'test',
+);	
+echo widget('imageblock',array(
+	'rows'=>$rows
+));
+?> 
+<div  style="clear:both;">
  
-<div class="carousel slide" id="carousel-716710">
-	<ol class="carousel-indicators">
-		<li class="active" data-slide-to="0" data-target="#carousel-716710">
-		</li>
-		<li data-slide-to="1" data-target="#carousel-716710">
-		</li>
-		<li data-slide-to="2" data-target="#carousel-716710">
-		</li>
-	</ol>
-	<div class="carousel-inner">
-		<div class="item active">
-			<img alt="" src="http://lorempixel.com/1600/500/sports/1" />
-			<div class="carousel-caption">
-				<h4>
-					First Thumbnail label
-				</h4>
-				<p>
-					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-				</p>
-			</div>
-		</div>
-		<div class="item">
-			<img alt="" src="http://lorempixel.com/1600/500/sports/2" />
-			<div class="carousel-caption">
-				<h4>
-					Second Thumbnail label
-				</h4>
-				<p>
-					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-				</p>
-			</div>
-		</div>
-		<div class="item">
-			<img alt="" src="http://lorempixel.com/1600/500/sports/3" />
-			<div class="carousel-caption">
-				<h4>
-					Third Thumbnail label
-				</h4>
-				<p>
-					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-				</p>
-			</div>
-		</div>
-	</div> <a data-slide="prev" href="#carousel-716710" class="left carousel-control">&#8249;</a> <a data-slide="next" href="#carousel-716710" class="right carousel-control">&#8250;</a>
 </div>
-<div class="page-header">
-	<h1>
-		Example page header <small>Subtext for header</small>
-	</h1>
-</div>
+<div class="row-fluid">
+	<div class="span6 well">
+		<ul>
+			<li>
+				Lorem ipsum dolor sit amet
+			</li>
+			<li>
+				Consectetur adipiscing elit
+			</li>
+			<li>
+				Integer molestie lorem at massa
+			</li>
+			<li>
+				Facilisis in pretium nisl aliquet
+			</li>
+			<li>
+				Nulla volutpat aliquam velit
+			</li>
+			<li>
+				Faucibus porta lacus fringilla vel
+			</li>
+			<li>
+				Aenean sit amet erat nunc
+			</li>
+			<li>
+				Eget porttitor lorem
+			</li>
+		</ul>
+	</div>
+	<div class="span6 well">
+		<ul>
+			<li>
+				Lorem ipsum dolor sit amet
+			</li>
+			<li>
+				Consectetur adipiscing elit
+			</li>
+			<li>
+				Integer molestie lorem at massa
+			</li>
+			<li>
+				Facilisis in pretium nisl aliquet
+			</li>
+			<li>
+				Nulla volutpat aliquam velit
+			</li>
+			<li>
+				Faucibus porta lacus fringilla vel
+			</li>
+			<li>
+				Aenean sit amet erat nunc
+			</li>
+			<li>
+				Eget porttitor lorem
+			</li>
+		</ul>
+	</div>
+</div>	
 <ul class="thumbnails">
 	<li class="span4">
 		<div class="thumbnail">

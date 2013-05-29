@@ -1,5 +1,8 @@
 <?php 
 return  array (
+  'return back' => '返回上一层',
+  'link' => '链接',
+  'memo' => '备注',
   'port' => '端口',
   'smtp' => 'SMTP',
   'from_password' => '邮件发送人密码',

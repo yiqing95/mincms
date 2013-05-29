@@ -23,7 +23,7 @@ class OpenController extends FrontController
 	{
 		$model = new LoginForm();
 		if ($this->populate($_POST, $model) && $model->login()) {
-			redirect(array('auth/config/index'));
+			redirect(array('core/config/index'));
 		} else {
 			echo $this->render('login', array(
 				'model' => $model,

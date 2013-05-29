@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 27 日 10:41
+-- 生成日期: 2013 年 05 月 29 日 09:53
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `auth_access` (
   `name` varchar(255) NOT NULL,
   `pid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='权限列表(仅对数据库表的字段)' AUTO_INCREMENT=28 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='权限列表(仅对数据库表的字段)' AUTO_INCREMENT=39 ;
 
 --
 -- 转存表中的数据 `auth_access`
@@ -64,7 +64,18 @@ INSERT INTO `auth_access` (`id`, `name`, `pid`) VALUES
 (24, 'i18n.site', 0),
 (25, 'index', 24),
 (26, 'svn.site', 0),
-(27, 'index', 26);
+(27, 'index', 26),
+(28, 'core.config', 0),
+(29, 'create', 28),
+(30, 'update', 28),
+(31, 'delete', 28),
+(32, 'index', 28),
+(33, 'file.site', 0),
+(34, 'index', 33),
+(35, 'image.site', 0),
+(36, 'index', 35),
+(37, 'media.post', 0),
+(38, 'index', 37);
 
 -- --------------------------------------------------------
 
@@ -124,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `auth_users` (
 --
 
 INSERT INTO `auth_users` (`id`, `username`, `email`, `password`, `active`, `active_code`, `yourself`, `created`, `updated`) VALUES
-(1, 'admin', 'test@test.com', '$2a$10$hPcZTqXm2Gyel5nM5Fj1D.hW/DcPvt2KREFCMCT5F3fiQZTIjWEN6', 1, '', 0, 0, 0);
+(1, 'admin', 'test@test.com', '$2y$13$jVu0gn0TPJ1jGE2FcuAprO1tRyMkYfMsoyn/qDJInyfsussBf2HZC', 1, '', 0, 0, 1369819228);
 
 -- --------------------------------------------------------
 
@@ -142,100 +153,6 @@ CREATE TABLE IF NOT EXISTS `auth_user_group` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `content_field`
---
-
-CREATE TABLE IF NOT EXISTS `content_field` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `slug` varchar(200) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `memo` text NOT NULL,
-  `pid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `content_float`
---
-
-CREATE TABLE IF NOT EXISTS `content_float` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` float NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `content_int`
---
-
-CREATE TABLE IF NOT EXISTS `content_int` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `content_text`
---
-
-CREATE TABLE IF NOT EXISTS `content_text` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `content_validate`
---
-
-CREATE TABLE IF NOT EXISTS `content_validate` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `value` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `content_varchar`
---
-
-CREATE TABLE IF NOT EXISTS `content_varchar` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `content_widget`
---
-
-CREATE TABLE IF NOT EXISTS `content_widget` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `memo` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `core_config`
 --
 
@@ -245,14 +162,16 @@ CREATE TABLE IF NOT EXISTS `core_config` (
   `body` text NOT NULL,
   `memo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `core_config`
 --
 
 INSERT INTO `core_config` (`id`, `slug`, `body`, `memo`) VALUES
-(1, 'title', '<p>标题</p>', '网站标题');
+(1, 'title', '<p>标题</p>', '网站标题'),
+(2, 'front_footer', '<address><strong>liujifatiachi.com</strong><br> \r\n				Xianyang Park HuaiHai Road<br> \r\n				Email: liujifa@outlook.com<br></address>\r\n', '前端页脚'),
+(3, 'front_title', '<p>Master JiFa Liu</p>', '');
 
 -- --------------------------------------------------------
 
@@ -349,6 +268,24 @@ INSERT INTO `email_send` (`id`, `to_email`, `to_name`, `title`, `body`, `attach`
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `file`
+--
+
+CREATE TABLE IF NOT EXISTS `file` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(255) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `size` int(11) NOT NULL,
+  `created` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '1' COMMENT '默认是管理员',
+  `uniqid` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `file_ext`
 --
 
@@ -360,118 +297,6 @@ CREATE TABLE IF NOT EXISTS `file_ext` (
   `datetime` int(11) NOT NULL,
   `fid` int(11) NOT NULL,
   PRIMARY KEY (`width`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `file_init`
---
-
-CREATE TABLE IF NOT EXISTS `file_init` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `path` varchar(255) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `size` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT '1' COMMENT '默认是管理员',
-  `uniqid` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `file_init`
---
-
-INSERT INTO `file_init` (`id`, `path`, `type`, `size`, `created`, `uid`, `admin`, `uniqid`) VALUES
-(1, 'upload/2013/05/27/5b3b703f5281d4d601882c50b4ba24f4.jpg', 'image/jpeg', 201606, 0, 1, 1, '95735e51dfe8c753622deb7da5bdb51f');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `media_album`
---
-
-CREATE TABLE IF NOT EXISTS `media_album` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `body` varchar(255) NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `media_img`
---
-
-CREATE TABLE IF NOT EXISTS `media_img` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `album_id` int(11) NOT NULL,
-  `fid` int(11) NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `media_news`
---
-
-CREATE TABLE IF NOT EXISTS `media_news` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `slug` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `media_post`
---
-
-CREATE TABLE IF NOT EXISTS `media_post` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `media_video`
---
-
-CREATE TABLE IF NOT EXISTS `media_video` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `fid` int(11) NOT NULL,
-  `sort` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
