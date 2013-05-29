@@ -6,7 +6,9 @@ runtime
 public/assets
 public/upload
 protected/modules/content 
+protected/modules/flickr
 public/themes/front
+public/themes/mincms
 vendor
 # netbeans project files
 nbproject

@@ -1,0 +1,10 @@
+username:
+   html:textInput 
+old_password:
+   html:passwordInput
+new_password:
+   html:passwordInput
+confirm_password:
+   html:passwordInput
+email:
+   html:textInput
