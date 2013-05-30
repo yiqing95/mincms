@@ -28,6 +28,10 @@ function core_widget($name,$params=null){
 	$cls = "app\core\widget\\$name";
 	return $cls::widget($params);
 }
+function module_widget($module,$name,$params=null,$file='widget'){
+	$cls = "app\modules\\$module\widget\\$name\\$file";
+	return $cls::widget($params);
+}
 /**
 * setting language
 */

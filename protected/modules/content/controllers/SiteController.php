@@ -1,13 +1,18 @@
 <?php namespace app\modules\content\controllers; 
 use app\modules\content\models\Field;
+use app\modules\content\models\Widget;
 /** 
 * @author Sun < taichiquan@outlook.com >
 */
 class SiteController extends \app\core\AuthController
 { 
+	public $widget;
 	function init(){
 		parent::init();
 		$this->active = array('content','content.site.index');
+		$this->widget = Field::widgets();
+		$first[0] = __('please select');
+		$this->widget = $first+$this->widget;
 	}
 	public function actionCreate()
 	{  
@@ -22,6 +27,7 @@ class SiteController extends \app\core\AuthController
 		echo $this->render('form', array(
 		   'model' => $model,
 		   'name'=>'content', 
+		   'widget'=>$this->widget
 		));
 	}
 	public function actionUpdate($id)
@@ -30,13 +36,14 @@ class SiteController extends \app\core\AuthController
 		$model = Field::find($id);
 	 	$model->scenario = 'all';
 		if ($this->populate($_POST, $model) && $model->validate()) { 
-		 	$model->save();
+		 	$model->save(); 
 		 	flash('success',__('update sucessful'));
 			refresh();
 		} 
 		echo $this->render('form', array(
 		   'model' => $model, 
 		   'name'=>'content',
+		   'widget'=>$this->widget
 		));
 	}
 	public function actionDelete($id){

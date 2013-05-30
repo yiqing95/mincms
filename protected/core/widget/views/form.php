@@ -16,7 +16,9 @@ use yii\widgets\ActiveForm;
 			  	echo $out->$v['html']();  
 		?> 
 	<?php }?>
-	<div class="form-actions">
-		<?php echo Html::submitButton(__('save'), null, null, array('class' => 'btn ')); ?>
-	</div>
-<?php ActiveForm::end(); ?>
+	<?php if(true === $form){?>
+		<div class="form-actions">
+			<?php echo Html::submitButton(__('save'), null, null, array('class' => 'btn ')); ?>
+		</div>
+	<?php }?>
+<?php if(true === $form) ActiveForm::end(); ?>

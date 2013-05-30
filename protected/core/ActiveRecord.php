@@ -6,7 +6,18 @@
 */
 class ActiveRecord extends \yii\db\ActiveRecord
 { 
- 
+ 	public function save($runValidation = true, $attributes = null)
+	{
+		if ($this->getIsNewRecord()) {
+			$r = $this->insert($runValidation, $attributes);
+			$this->afterSave(true);
+		} else {
+			$r = $this->update($runValidation, $attributes) !== false;
+			$this->afterSave(false);
+		}
+		
+		return $r;
+	}
  	/*
  	* 属性自动翻译
  	*

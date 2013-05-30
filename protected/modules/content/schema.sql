@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 29 日 09:53
+-- 生成日期: 2013 年 05 月 30 日 04:19
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -35,16 +35,18 @@ CREATE TABLE IF NOT EXISTS `content_field` (
   `created` int(11) NOT NULL,
   `updated` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
+  `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `content_field`
 --
 
-INSERT INTO `content_field` (`id`, `slug`, `name`, `memo`, `pid`, `created`, `updated`, `uid`) VALUES
-(1, 'posts', '文章', '文章', 0, 0, 0, 0),
-(2, 'posts', '文章', '', 1, 0, 0, 0);
+INSERT INTO `content_field` (`id`, `slug`, `name`, `memo`, `pid`, `created`, `updated`, `uid`, `sort`) VALUES
+(1, 'posts', '文章', '文章', 0, 0, 0, 0, 0),
+(2, 'title', '标题', '', 1, 0, 0, 0, 0),
+(3, 'body', '内容', '', 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -55,6 +57,7 @@ INSERT INTO `content_field` (`id`, `slug`, `name`, `memo`, `pid`, `created`, `up
 CREATE TABLE IF NOT EXISTS `content_float` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` float NOT NULL,
+  `nums` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -67,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `content_float` (
 CREATE TABLE IF NOT EXISTS `content_int` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` int(11) NOT NULL,
+  `nums` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -79,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `content_int` (
 CREATE TABLE IF NOT EXISTS `content_text` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` text NOT NULL,
+  `nums` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -105,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `content_validate` (
 CREATE TABLE IF NOT EXISTS `content_varchar` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(255) NOT NULL,
+  `nums` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -120,7 +126,15 @@ CREATE TABLE IF NOT EXISTS `content_widget` (
   `name` varchar(200) NOT NULL,
   `memo` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `content_widget`
+--
+
+INSERT INTO `content_widget` (`id`, `field_id`, `name`, `memo`) VALUES
+(1, 2, 'input', ''),
+(2, 3, 'text', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

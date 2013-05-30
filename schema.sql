@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 29 日 09:53
+-- 生成日期: 2013 年 05 月 30 日 10:44
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -153,6 +153,134 @@ CREATE TABLE IF NOT EXISTS `auth_user_group` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `content_field`
+--
+
+CREATE TABLE IF NOT EXISTS `content_field` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slug` varchar(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `memo` text NOT NULL,
+  `pid` int(11) NOT NULL,
+  `created` int(11) NOT NULL,
+  `updated` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `sort` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- 转存表中的数据 `content_field`
+--
+
+INSERT INTO `content_field` (`id`, `slug`, `name`, `memo`, `pid`, `created`, `updated`, `uid`, `sort`) VALUES
+(1, 'posts', '文章', '文章', 0, 0, 0, 0, 0),
+(2, 'title', '标题', '', 1, 0, 0, 0, 0),
+(3, 'body', '内容', '', 1, 0, 0, 0, 0),
+(7, 'test', '测试', '', 1, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_float`
+--
+
+CREATE TABLE IF NOT EXISTS `content_float` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_int`
+--
+
+CREATE TABLE IF NOT EXISTS `content_int` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_text`
+--
+
+CREATE TABLE IF NOT EXISTS `content_text` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `content_text`
+--
+
+INSERT INTO `content_text` (`id`, `value`) VALUES
+(1, 'cccc');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_validate`
+--
+
+CREATE TABLE IF NOT EXISTS `content_validate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) NOT NULL,
+  `name` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_varchar`
+--
+
+CREATE TABLE IF NOT EXISTS `content_varchar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `content_varchar`
+--
+
+INSERT INTO `content_varchar` (`id`, `value`) VALUES
+(1, 'aaa');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_widget`
+--
+
+CREATE TABLE IF NOT EXISTS `content_widget` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `memo` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- 转存表中的数据 `content_widget`
+--
+
+INSERT INTO `content_widget` (`id`, `field_id`, `name`, `memo`) VALUES
+(6, 3, 'text', ''),
+(7, 2, 'input', ''),
+(10, 7, 'input', '');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `core_config`
 --
 
@@ -281,7 +409,15 @@ CREATE TABLE IF NOT EXISTS `file` (
   `admin` tinyint(1) NOT NULL DEFAULT '1' COMMENT '默认是管理员',
   `uniqid` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `file`
+--
+
+INSERT INTO `file` (`id`, `path`, `type`, `size`, `created`, `uid`, `admin`, `uniqid`) VALUES
+(1, 'upload/2013/05/29/12b6fb35933703dadf3dcf5b6e944e33.jpg', 'image/jpeg', 201606, 1369823124, 1, 1, '95735e51dfe8c753622deb7da5bdb51f'),
+(2, 'upload/2013/05/29/82738d1cd8c27e680b31913a9cfbaa47.jpg', 'image/jpeg', 272142, 1369823125, 1, 1, 'ffd6953c5617164f0681db9cd0eae440');
 
 -- --------------------------------------------------------
 
@@ -297,6 +433,109 @@ CREATE TABLE IF NOT EXISTS `file_ext` (
   `datetime` int(11) NOT NULL,
   `fid` int(11) NOT NULL,
   PRIMARY KEY (`width`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `node_posts`
+--
+
+CREATE TABLE IF NOT EXISTS `node_posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` int(11) NOT NULL,
+  `updated` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '1',
+  `display` tinyint(1) NOT NULL DEFAULT '1',
+  `sort` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=67 ;
+
+--
+-- 转存表中的数据 `node_posts`
+--
+
+INSERT INTO `node_posts` (`id`, `created`, `updated`, `uid`, `admin`, `display`, `sort`) VALUES
+(1, 1369907211, 1369907211, 1, 1, 1, 0),
+(2, 1369907232, 1369907232, 1, 1, 1, 0),
+(3, 1369907276, 1369907276, 1, 1, 1, 0),
+(4, 1369907290, 1369907290, 1, 1, 1, 0),
+(5, 1369907302, 1369907302, 1, 1, 1, 0),
+(6, 1369907305, 1369907305, 1, 1, 1, 0),
+(7, 1369907597, 1369907597, 1, 1, 1, 0),
+(8, 1369907601, 1369907601, 1, 1, 1, 0),
+(9, 1369907626, 1369907626, 1, 1, 1, 0),
+(10, 1369907649, 1369907649, 1, 1, 1, 0),
+(11, 1369907663, 1369907663, 1, 1, 1, 0),
+(12, 1369907675, 1369907675, 1, 1, 1, 0),
+(13, 1369907676, 1369907676, 1, 1, 1, 0),
+(14, 1369907703, 1369907703, 1, 1, 1, 0),
+(15, 1369907704, 1369907704, 1, 1, 1, 0),
+(16, 1369907708, 1369907708, 1, 1, 1, 0),
+(17, 1369907724, 1369907724, 1, 1, 1, 0),
+(18, 1369907741, 1369907741, 1, 1, 1, 0),
+(19, 1369907755, 1369907755, 1, 1, 1, 0),
+(20, 1369907785, 1369907785, 1, 1, 1, 0),
+(21, 1369907795, 1369907795, 1, 1, 1, 0),
+(22, 1369907795, 1369907795, 1, 1, 1, 0),
+(23, 1369907796, 1369907796, 1, 1, 1, 0),
+(24, 1369907796, 1369907796, 1, 1, 1, 0),
+(25, 1369907796, 1369907796, 1, 1, 1, 0),
+(26, 1369907797, 1369907797, 1, 1, 1, 0),
+(27, 1369907851, 1369907851, 1, 1, 1, 0),
+(28, 1369907853, 1369907853, 1, 1, 1, 0),
+(29, 1369907857, 1369907857, 1, 1, 1, 0),
+(30, 1369907877, 1369907877, 1, 1, 1, 0),
+(31, 1369907911, 1369907911, 1, 1, 1, 0),
+(32, 1369907927, 1369907927, 1, 1, 1, 0),
+(33, 1369907940, 1369907940, 1, 1, 1, 0),
+(34, 1369907985, 1369907985, 1, 1, 1, 0),
+(35, 1369908003, 1369908003, 1, 1, 1, 0),
+(36, 1369908046, 1369908046, 1, 1, 1, 0),
+(37, 1369908118, 1369908118, 1, 1, 1, 0),
+(38, 1369908138, 1369908138, 1, 1, 1, 0),
+(39, 1369908152, 1369908152, 1, 1, 1, 0),
+(40, 1369908155, 1369908155, 1, 1, 1, 0),
+(41, 1369908349, 1369908349, 1, 1, 1, 0),
+(42, 1369908355, 1369908355, 1, 1, 1, 0),
+(43, 1369908409, 1369908409, 1, 1, 1, 0),
+(44, 1369908576, 1369908576, 1, 1, 1, 0),
+(45, 1369908592, 1369908592, 1, 1, 1, 0),
+(46, 1369908821, 1369908821, 1, 1, 1, 0),
+(47, 1369908839, 1369908839, 1, 1, 1, 0),
+(48, 1369909009, 1369909009, 1, 1, 1, 0),
+(49, 1369909046, 1369909046, 1, 1, 1, 0),
+(50, 1369909056, 1369909056, 1, 1, 1, 0),
+(51, 1369909058, 1369909058, 1, 1, 1, 0),
+(52, 1369909067, 1369909067, 1, 1, 1, 0),
+(53, 1369909089, 1369909089, 1, 1, 1, 0),
+(54, 1369909102, 1369909102, 1, 1, 1, 0),
+(55, 1369909114, 1369909114, 1, 1, 1, 0),
+(56, 1369909115, 1369909115, 1, 1, 1, 0),
+(57, 1369909120, 1369909120, 1, 1, 1, 0),
+(58, 1369909131, 1369909131, 1, 1, 1, 0),
+(59, 1369909153, 1369909153, 1, 1, 1, 0),
+(60, 1369909181, 1369909181, 1, 1, 1, 0),
+(61, 1369909447, 1369909447, 1, 1, 1, 0),
+(62, 1369909458, 1369909458, 1, 1, 1, 0),
+(63, 1369909473, 1369909473, 1, 1, 1, 0),
+(64, 1369909485, 1369909485, 1, 1, 1, 0),
+(65, 1369909502, 1369909502, 1, 1, 1, 0),
+(66, 1369909523, 1369909523, 1, 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `node_posts_relate`
+--
+
+CREATE TABLE IF NOT EXISTS `node_posts_relate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nid` int(11) NOT NULL,
+  `fid` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

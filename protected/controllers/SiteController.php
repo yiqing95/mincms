@@ -17,7 +17,7 @@ class SiteController extends FrontController
 	}
 
 	public function actionIndex()
-	{ 
+	{  
 		$this->active = 'site.index';  
 		echo $this->render('index');
 	} 

@@ -1,5 +1,6 @@
 <?php 
 return  array (
+  'form widget' => '表单',
   'return back' => '返回上一层',
   'link' => '链接',
   'memo' => '备注',
