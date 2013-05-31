@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title> Page Ttitle </title>
+		<meta name="description" content="" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+
+		<!-- page specific plugin styles -->
+		
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<!--[if lt IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.css" />
+		<![endif]-->
+
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse">
+		  <div class="navbar-inner">
+		   <div class="container-fluid">
+
+
+			  <a class="brand" href="#"><small><i class="icon-leaf"></i> LOGO </small> </a>
+			  <ul class="nav pull-right ace-nav">
+					<li class="grey">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-tasks"></i>
+							<span class="badge badge-important">4</span>
+						</a>
+						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
+							<li class="nav-header">
+								<i class="icon-ok"></i> Title
+							</li>
+							<li>
+								Item # 1
+							</li>
+						</ul>
+					</li>
+
+					<li class="purple">
+					</li>
+
+					<li class="green">
+					</li>
+
+					<li class="light-blue user-profile">
+						<a class="user-menu dropdown-toggle" href="#" data-toggle="dropdown">
+							<img alt="Jason's Photo" src="assets/avatars/user.jpg" class="nav-user-photo" />
+							<span id="user_info">
+								<small>Welcome,</small> Jason
+							</span>
+							<i class="icon-caret-down"></i>
+						</a>
+						<ul id="user_menu" class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+							<li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><i class="icon-off"></i> Logout</a></li>
+						</ul>
+					</li>
+			  </ul><!--/nav-->
+
+		   </div><!--/container-fluid-->
+		  </div><!--/navbar-inner-->
+		</div><!--/navbar-->
+
+		<div class="container-fluid" id="main-container">
+			<a href="#" id="menu-toggler"><span></span></a><!-- menu toggler -->
+
+			<div id="sidebar" class="row-fluid">
+				
+				<div id="sidebar-shortcuts">
+					<div id="sidebar-shortcuts-large">
+						<button class="btn btn-small btn-success"><i class="icon-signal"></i></button>
+						<button class="btn btn-small btn-info"><i class="icon-pencil"></i></button>
+						<button class="btn btn-small btn-warning"><i class="icon-group"></i></button>
+						<button class="btn btn-small btn-danger"><i class="icon-cogs"></i></button>
+					</div>
+					<div id="sidebar-shortcuts-mini">
+						<span class="btn btn-success"></span>
+						<span class="btn btn-info"></span>
+						<span class="btn btn-warning"></span>
+						<span class="btn btn-danger"></span>
+					</div>
+				</div><!-- #sidebar-shortcuts -->
+
+				<ul class="nav nav-list">
+					<li>
+					  <a href="index.html">
+						<i class="icon-dashboard"></i>
+						<span>Dashboard</span>
+						
+					  </a>
+					</li>
+
+					
+					<li>
+					  <a href="#" class="dropdown-toggle" >
+						<i class="icon-desktop"></i>
+						<span>UI Elements</span>
+						<b class="arrow icon-angle-down"></b>
+					  </a>
+					  <ul class="submenu">
+						<li><a href="elements.html"><i class="icon-double-angle-right"></i> Elements</a></li>
+						<li><a href="buttons.html"><i class="icon-double-angle-right"></i> Buttons & Icons</a></li>
+					  </ul>
+					</li>
+				</ul><!--/.nav-list-->
+				<div id="sidebar-collapse"><i class="icon-double-angle-left"></i></div>
+
+			</div><!--/#sidebar-->
+
+		
+			<div id="main-content" class="clearfix">
+					
+					<div id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li><i class="icon-home"></i> <a href="#">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+							<li class="active">Empty Page</li>
+						</ul><!--.breadcrumb-->
+
+						<div id="nav-search">
+							<form class="form-search">
+									<span class="input-icon">
+										<input autocomplete="off" id="nav-search-input" type="text" class="input-small search-query" placeholder="Search ..." />
+										<i id="nav-search-icon" class="icon-search"></i>
+									</span>
+							</form>
+						</div><!--#nav-search-->
+					</div><!--#breadcrumbs-->
+
+
+
+					<div id="page-content" class="clearfix">
+						
+
+						<div class="row-fluid">
+<!-- PAGE CONTENT BEGINS HERE -->
+<!-- PAGE CONTENT ENDS HERE -->
+						 </div><!--/row-->
+	
+					</div><!--/#page-content-->
+					  
+
+					<div id="ace-settings-container">
+						<div class="btn btn-app btn-mini btn-warning" id="ace-settings-btn">
+							<i class="icon-cog"></i>
+						</div>
+						<div id="ace-settings-box">
+							<div>
+								<div class="pull-left">
+									<select id="skin-colorpicker" class="hidden">
+										<option data-class="default" value="#438EB9">#438EB9</option>
+										<option data-class="skin-1" value="#222A2D">#222A2D</option>
+										<option data-class="skin-2" value="#C6487E">#C6487E</option>
+										<option data-class="skin-3" value="#D0D0D0">#D0D0D0</option>
+									</select>
+								</div>
+								<span>&nbsp; Choose Skin</span>
+							</div>
+							<div><input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" /><label class="lbl" for="ace-settings-header"> Fixed Header</label></div>
+							<div><input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" /><label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label></div>
+						</div>
+					</div><!--/#ace-settings-container-->
+
+
+			</div><!-- #main-content -->
+
+
+		</div><!--/.fluid-container#main-container-->
+
+
+
+
+		<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only"></i>
+		</a>
+
+
+		<!-- basic scripts -->
+		<script src="assets/js/jquery-1.9.1.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		
+
+		<!-- ace scripts -->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+
+		<!-- inline scripts related to this page -->
+		
+	</body>
+</html>
