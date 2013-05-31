@@ -23,14 +23,13 @@ js("$(function(){
 	<?php $this->head(); ?>
 	<style>
     body {
-        padding-top: 20px;
-        padding-bottom: 40px;
+        
       }
 
       /* Custom container */
       .container-narrow {
         margin: 0 auto;
-        max-width: 700px;
+        max-width: 960px;
       }
       .container-narrow > hr {
         margin: 30px 0;
@@ -62,13 +61,17 @@ js("$(function(){
 <body  >
 <div class="container-narrow">
 <?php $this->beginBody(); ?>
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
+      <div class="masthead" style='position:relative'>
+        <ul class="nav nav-pills pull-right" style="margin-right: 117px;">
           <li class="active"><a href="<?php echo url('site/index');?>">Home</a></li>
           <li><a href="#">MINCMS ON LINE</a></li>
           <li><a href="<?php echo url('auth/open/login');?>">Login Admin</a></li>
         </ul>
         <h3 class="muted">MINCMS</h3>
+       <a href="https://github.com/mincms/mincms" target="_blank"> <img style="position: absolute;
+top: 0;
+right: 0;
+z-index: 1000; "src="<?php base_url();?>img/fork.png"/></a>
       </div>
 
       <hr> 
