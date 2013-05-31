@@ -9,7 +9,11 @@
 ```
   php composer.phar install  
 ```
+### Commication
 
+```
+QQÈº£º40933125
+```
 after install please visit /public or set public dir as root
 
 ###Work On Yii 2.0 Public Preview 
