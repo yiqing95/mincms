@@ -25,3 +25,9 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
+
+/formbuiler
+
+/protected/modules/document
+
+/protected/modules/multisite
