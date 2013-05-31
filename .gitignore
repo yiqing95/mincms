@@ -9,6 +9,8 @@ protected/modules/content
 protected/modules/flickr
 public/themes/front
 public/themes/mincms
+protected/modules/multisite
+protected/modules/svn
 vendor
 # netbeans project files
 nbproject
