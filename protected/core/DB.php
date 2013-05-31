@@ -16,7 +16,7 @@ class DB{
 		return $command->queryAll();  
 	}
 	
-	static function insert($table,$data=array(),){ 
+	static function insert($table,$data=array()){ 
 		return \Yii::$app->db->createCommand()
 			->insert($table,$data);   	
 	}

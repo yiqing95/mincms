@@ -26,12 +26,11 @@ class Controller extends \yii\web\Controller
 	* 加载模块
 	*/
 	function _modules(){
-		$query = new Query; 
-		$query = $query->from('core_modules')
-		 	->where(array('active'=>1))
-		 	->orderBy('sort desc,id asc');
-		$all = $query->createCommand() 
-		 	->queryAll();
+		$all = DB::all('core_modules',array(
+			'where'=>array('active'=>1),
+			'orderBy'=>'sort desc,id asc',
+		));
+	 	 
 		foreach($all as $v){
 			$out[$v['name']] = 1;
 		}
