@@ -2,15 +2,17 @@
 .idea
 composer.lock
 .svn
+formbuiler
 runtime
 public/assets
 public/upload
 protected/modules/content
 protected/modules/flickr
+protected/modules/document 
+protected/modules/oauth
+protected/modules/svn
 public/themes/front
 public/themes/mincms
-protected/modules/multisite
-protected/modules/svn
 vendor
 # netbeans project files
 nbproject
