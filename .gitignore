@@ -1,6 +1,7 @@
 # phpstorm project files
 .idea
 composer.lock
+cronjob/backup
 .svn
 formbuiler
 runtime

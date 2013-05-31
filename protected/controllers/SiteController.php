@@ -5,8 +5,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\modules\auth\models\User;
 class SiteController extends FrontController
-{
-	
+{ 
 	public function actions()
 	{
 		return array(
@@ -17,7 +16,7 @@ class SiteController extends FrontController
 	}
 
 	public function actionIndex()
-	{  
+	{   
 		$this->active = 'site.index';  
 		echo $this->render('index');
 	} 

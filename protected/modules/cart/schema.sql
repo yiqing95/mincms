@@ -1,4 +1,25 @@
- 
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- 主机: localhost
+-- 生成日期: 2013 年 05 月 31 日 08:40
+-- 服务器版本: 5.5.8-log
+-- PHP 版本: 5.4.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- 数据库: `books`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +65,8 @@ CREATE TABLE IF NOT EXISTS `cart_area` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
+  `abcd` varchar(200) NOT NULL COMMENT '全拼',
+  `abc` varchar(100) NOT NULL COMMENT '首字母',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='收货所在地址' AUTO_INCREMENT=1 ;
 
@@ -106,4 +129,6 @@ CREATE TABLE IF NOT EXISTS `cart_test` (
   `left` int(11) NOT NULL COMMENT '库存'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='测试cart模块[这个是产品信息]';
 
- 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

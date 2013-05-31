@@ -131,4 +131,5 @@ return  array (
   'supper user can not delete' => '超级管理员不能删除滴！',
   'you can not remove yourself' => '想删除当前用户？是行不通的',
   'core module' => '内置模块',
+  'admin login'=>'管理员登录',
 );

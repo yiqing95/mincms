@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 31 日 05:58
+-- 生成日期: 2013 年 05 月 31 日 08:39
 -- 服务器版本: 5.5.8-log
--- PHP 版本: 5.3.5
+-- PHP 版本: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -195,6 +195,8 @@ CREATE TABLE IF NOT EXISTS `cart_area` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
+  `abcd` varchar(200) NOT NULL COMMENT '全拼',
+  `abc` varchar(100) NOT NULL COMMENT '首字母',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='收货所在地址' AUTO_INCREMENT=1 ;
 

@@ -8,7 +8,7 @@ class FrontController extends Controller
 { 
  
 	public $active;
-	public $theme = 'front';
+	public $theme = 'default';
 	function init(){
 		parent::init();  
 	 

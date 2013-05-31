@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
  * @var yii\widgets\ActiveForm $form
  * @var app\models\LoginForm $model
  */
-$this->title = __('login');
+$this->title = __('admin login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <blockquote>
