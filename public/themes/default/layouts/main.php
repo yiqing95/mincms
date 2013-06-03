@@ -13,6 +13,9 @@ widget('prettify',array('theme'=>'1'));
 js("$(function(){
 	$('.flash-message').delay(2500).fadeOut();
 });");
+$this->registerMetaTag(array('content'=>'mincms,yii2,yii2 cms,yii2 framework,yii2 framework cms,content manage system,内容管理系统,迷你CMS,迷你内容系统','name'=>'keywords'));
+$this->registerMetaTag(array('content'=>'自定义内容管理系统,支持多模块,支付,购物车,第三方登录,权限,会员,多语言,自定义内容等模块','name'=>'descriptian'));
+
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>

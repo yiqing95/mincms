@@ -18,15 +18,13 @@ $modules = $module;
 return array(
 	'id' => 'hello',
 	'timeZone'=>'Asia/Shanghai',
-	'language'=>'zh_cn',
-	'runtimePath'=>dirname(__DIR__).'/../runtime',
+	'language'=>'zh_cn', 
 	'basePath' => dirname(__DIR__),
 	'preload' => array('log'), 
 	'modules' => $module,
 	'components' => array(  
 		'cache' => array(
-			'class' => 'yii\caching\FileCache',
-			'cachePath'=>'@wwwroot/../runtime'
+			'class' => 'yii\caching\FileCache', 
 		), 
 		'assetManager' => array(
 			'bundles' => require(__DIR__ . '/assets.php'),

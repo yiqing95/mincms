@@ -1,4 +1,4 @@
-<?php
+<?php namespace app\controllers;
 
 use app\core\FrontController;
 use app\models\LoginForm;

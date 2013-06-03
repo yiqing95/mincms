@@ -12,6 +12,7 @@ protected/modules/flickr
 protected/modules/document 
 protected/modules/oauth
 protected/modules/svn
+protected/runtime
 public/themes/front
 public/themes/mincms
 vendor
