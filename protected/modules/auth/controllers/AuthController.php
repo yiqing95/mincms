@@ -2,6 +2,7 @@
 use app\modules\auth\models\Access;
 use app\modules\auth\models\GroupAccess;
 use app\core\Arr;
+use app\core\DB;
 /**
 * generate access lists
 * 
@@ -25,10 +26,10 @@ class AuthController extends \app\core\AuthController
 		} 
 		$d = $this->_get_modules(); 
 	   	Access::generate($d); 
-	    $query = new \app\core\Query;
-		$query->select('id, name,pid')
-		      ->from('auth_access'); 
-		$rows = $query->all();
+	   	$rows = DB::all('auth_access',array(
+	   		'select'=>"id,name,pid"
+	   	));
+	     
 		foreach($rows as $v){
 			$out[$v['id']] = $v;
 		}

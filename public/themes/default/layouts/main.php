@@ -74,7 +74,7 @@ $this->registerMetaTag(array('content'=>'自定义内容管理系统,支持多�
        <a href="https://github.com/mincms/mincms" target="_blank"> <img style="position: absolute;
 top: 0;
 right: 0;
-z-index: 1000; "src="<?php base_url();?>img/fork.png"/></a>
+z-index: 1000; "src="<?php echo base_url();?>img/fork.png"/></a>
       </div>
 
       <hr> 
