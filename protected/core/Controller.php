@@ -36,4 +36,7 @@ class Controller extends \yii\web\Controller
 		}
 		cache_pre('all_modules',$out); 
 	}
+	function redirect($url){
+		return redirect($url);
+	}
 }

@@ -2,6 +2,28 @@
 /**
 *  FormBuilder
 * 
+slug: 
+   html:dropDownList
+   value:php:value  
+name:
+   html:textInput
+key1:
+   html:textInput
+key2:
+   html:textInput
+model.php
+value:php:value 
+function value(){
+	$first[0] = __('please select');
+	$data = static::find()->all();
+	if($data){ 
+		$out = \app\core\Arr::model_tree($data);  
+		$out = $first+$out; 
+	}else{
+		$out = $first;
+	}
+	return $out;
+}
 * @author Sun < taichiquan@outlook.com >
 */
 class Form extends \yii\base\Widget
@@ -28,11 +50,11 @@ class Form extends \yii\base\Widget
 			}
 		 
 		}
-	 
+ 
 	 	echo $this->render('@app/core/widget/views/form',array(
 	 		'model'=>$this->model,
 	 		'fields'=>$data, 
-	 		'form'=>$this->form
+	 		'show_form'=>$this->form
 	 	));
 	}
 }

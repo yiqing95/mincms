@@ -3,14 +3,13 @@
 composer.lock
 cronjob/backup
 .svn
+doc
 formbuiler
 runtime
 public/assets
 public/upload
-protected/modules/content
 protected/modules/flickr
 protected/modules/document 
-protected/modules/oauth
 protected/modules/svn
 protected/runtime
 public/themes/front

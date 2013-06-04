@@ -20,7 +20,14 @@ function refresh(){
 /**
 * show widget from @app/widget
 */
-function widget($name,$params=null,$file='widget'){
+function widget($name,$params=null){
+	if(strpos($name,'::')!==false){
+		$arr  = explode('::',$name);
+		$name = $arr[0];
+		$file = $arr[1];
+	}else{
+		$file = 'widget';
+	}
 	$cls = "app\widget\\$name\\$file";
 	return $cls::widget($params);
 }
@@ -28,10 +35,32 @@ function core_widget($name,$params=null){
 	$cls = "app\core\widget\\$name";
 	return $cls::widget($params);
 }
-function module_widget($module,$name,$params=null,$file='widget'){
-	$cls = "app\modules\\$module\widget\\$name\\$file";
+function module_widget($module,$name,$params=null){
+	if(strpos($name,'::')!==false){
+		$arr  = explode('::',$name);
+		$name = $arr[0];
+		$file = $arr[1];
+	}
+	$cls = "app\modules\\$module\widget\\$name";
+	if($file) $cls = $cls."\\$file";
 	return $cls::widget($params);
 }
+/**
+* 璁剧疆鍙婂彇寰椾笂绾RL
+*/
+function return_url($url=null){
+	if($url)
+		return \Yii::$app->user->setReturnUrl($url);
+	return host().\Yii::$app->user->returnUrl;
+}
+
+function is_ajax(){ 
+	return \Yii::$app->request->isAjaxRequest ? true:false;
+}
+function ip(){
+	return \Yii::$app->request->userHostAddress;
+}
+
 /**
 * setting language
 */
@@ -43,7 +72,11 @@ function language($name='language'){
  		return \Yii::$app->language = cookie($name);
  	}
 }
-
+function host(){
+	return \Yii::$app->request->hostInfo;
+}
+ 
+ 
 /**
 * setFlash/getFlash
 * @param  string $type 
@@ -142,6 +175,13 @@ function cookie($name,$value=null,$expire=null){
 	$cookie = new \yii\web\Cookie($options);
 	\Yii::$app->request->cookies->add($cookie); 
 }
+function remove_cookie($name){ 
+	$options['name'] = $name;
+	$options['value'] = null;
+	$options['expire'] = 1; 
+	$cookie = new \yii\web\Cookie($options);
+	\Yii::$app->request->cookies->add($cookie);  
+}
 /**
 * print_r
 * @param  string/object/array $str  
@@ -171,7 +211,7 @@ function auth(){
 	
 }
 /**
-* 判断是否是只能操作自己添加的记录
+* 鍒ゆ柇鏄惁鏄彧鑳芥搷浣滆嚜宸辨坊鍔犵殑璁板綍
 */
 function self($value){
 	$in = app\modules\auth\Auth::in(); 

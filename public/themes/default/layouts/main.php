@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\Menu; 
  
+ 
 /**
  * @var $this \yii\base\View
  * @var $content string
@@ -68,9 +69,18 @@ $this->registerMetaTag(array('content'=>'自定义内容管理系统,支持多�
         <ul class="nav nav-pills pull-right" style="margin-right: 117px;">
           <li class="active"><a href="<?php echo url('site/index');?>">Home</a></li>
           <li><a href="#">MINCMS ON LINE</a></li>
+        <li><a href="<?php echo url('site/document');?>">Document</a></li>
           <li><a href="<?php echo url('auth/open/login');?>">Login Admin</a></li>
         </ul>
         <h3 class="muted">MINCMS</h3>
+        <?php if(\app\modules\member\Auth::check()){?>
+        	<div class='alert aler-info'>
+        		<?php echo __('logined');?>:<?php echo \app\modules\member\Auth::info()->name;?>
+        		<a href="<?php echo url('member/logout/index');?>"><?php echo __('logout');?></a>
+        	</div>
+        <?php }else{?> 
+			<?php echo module_widget('oauth','login');?>
+        <?php }?>
        <a href="https://github.com/mincms/mincms" target="_blank"> <img style="position: absolute;
 top: 0;
 right: 0;
@@ -89,7 +99,8 @@ z-index: 1000; "src="<?php echo base_url();?>img/fork.png"/></a>
 		<div class="alert alert-<?php echo $type;?> flash-message"><?php echo flash($type);?></div>
 	<?php }}?>
  
-	<?php echo $content; ?> 
+	<?php echo $content; ?>  
+	  
       <hr>
 	<?php $this->endBody(); ?>
       <div class="footer">
@@ -98,6 +109,8 @@ z-index: 1000; "src="<?php echo base_url();?>img/fork.png"/></a>
       </div>
 
     </div> <!-- /container --> 
+    
+    	
 </body>
 </html>
 <?php $this->endPage(); ?>

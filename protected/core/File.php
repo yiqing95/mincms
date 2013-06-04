@@ -8,7 +8,7 @@ class File extends \yii\helpers\Html
 { 
 	public $admin = 1;
 	public $uid = 1;
-	public $name;
+	public $name; 
 	function upload($http_url=null){
 		$url = "upload/".date('Y').'/'.date('m').'/'.date('d');
 		$dir = root_path().$url; 
@@ -141,7 +141,7 @@ class File extends \yii\helpers\Html
 			} 
 			$tag .="</div>"; 
  		}
- 		echo $tag;exit;
+ 		 
  		return $tag;
 	 }
 }

@@ -18,7 +18,7 @@ class DB{
 	
 	static function insert($table,$data=array()){ 
 		return \Yii::$app->db->createCommand()
-			->insert($table,$data);   	
+			->insert($table,$data)->execute();   	
 	}
 	/**
 	*  
@@ -30,9 +30,9 @@ class DB{
 	* ))
 	```
 	*/
-	static function update($table,$data=array(),$condition=array()){ 
+	static function update($table, $columns, $condition = '', $params = array()){ 
 		return \Yii::$app->db->createCommand()
-			->update($table,$data,$condition);   	
+			->update($table,$columns,$condition,$params)->execute();   	
 	}
 	static function delete($table, $condition, &$params){ 
 		return \Yii::$app->db->createCommand()

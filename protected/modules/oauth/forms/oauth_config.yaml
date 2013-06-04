@@ -1,0 +1,9 @@
+slug: 
+   html:dropDownList
+   value:php:value  
+name:
+   html:textInput
+key1:
+   html:textInput
+key2:
+   html:textInput
