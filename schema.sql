@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 06 月 04 日 12:04
+-- 生成日期: 2013 年 06 月 06 日 08:03
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -276,6 +276,63 @@ CREATE TABLE IF NOT EXISTS `cart_test` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `comment`
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slug_id` int(11) NOT NULL,
+  `body_id` int(11) NOT NULL,
+  `mid` int(11) NOT NULL,
+  `created` int(11) NOT NULL,
+  `display` tinyint(4) NOT NULL DEFAULT '1',
+  `sort` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `comment_body`
+--
+
+CREATE TABLE IF NOT EXISTS `comment_body` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `body` text NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `comment_filter`
+--
+
+CREATE TABLE IF NOT EXISTS `comment_filter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `replace` varchar(20) NOT NULL DEFAULT '***',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `comment_slug`
+--
+
+CREATE TABLE IF NOT EXISTS `comment_slug` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_2` (`name`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `content_field`
 --
 
@@ -495,19 +552,27 @@ CREATE TABLE IF NOT EXISTS `oauth_config` (
   `display` tinyint(1) NOT NULL DEFAULT '1',
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- 转存表中的数据 `oauth_config`
 --
 
 INSERT INTO `oauth_config` (`id`, `slug`, `name`, `key1`, `key2`, `created`, `updated`, `uid`, `display`, `sort`) VALUES
-(1, 'qq', 'qq', '212156', 'c8f07c8529f6002160a2a0ae9bb352a0', 0, 0, 0, 1, 0),
-(2, 'github', 'github', 'fccec689af5a203d9db8', 'e4874cb3b6b8a84282a7d5359bf3a629cefbe621', 0, 0, 0, 1, 0),
-(3, 'msn', 'MSN', '000000004C0C5716', 'TZPF7ZQDbD7pM9rNONbPhvJZ3k1aKlxa', 0, 0, 0, 1, 0),
-(4, 'sina', 'SINA', '32618989', 'b82dd82b76d02812c8c5f3d9d1f7c26e', 0, 0, 0, 1, 0),
-(5, 'instagram', 'Instagram', 'e30432f942ec462cbb02432113fdf801', '940995910a37401db954eac55a8adb5d', 0, 0, 0, 0, 0),
-(6, 'google', 'Google', '680952100943-cfo952brj8shv9jkm27592vi02bgf257.apps.googleusercontent.com', '680952100943-cfo952brj8shv9jkm27592vi02bgf257@developer.gserviceaccount.com', 0, 0, 0, 1, 0);
+(1, 'qq', 'qq', '212156', 'c8f07c8529f6002160a2a0ae9bb352a0', 0, 0, 0, 1, 14),
+(2, 'github', 'github', 'fccec689af5a203d9db8', 'e4874cb3b6b8a84282a7d5359bf3a629cefbe621', 0, 0, 0, 1, 8),
+(3, 'msn', 'MSN', '000000004C0C5716', 'TZPF7ZQDbD7pM9rNONbPhvJZ3k1aKlxa', 0, 0, 0, 1, 12),
+(4, 'sina', 'SINA', '32618989', 'b82dd82b76d02812c8c5f3d9d1f7c26e', 0, 0, 0, 1, 13),
+(5, 'wy', '网易', 'LpqLB9N7LusO1n59', 'dZ41APRFfXmwuTuJmBeMOMpIrar691yd', 0, 0, 0, 1, 3),
+(6, 'google', 'Google', '680952100943-cfo952brj8shv9jkm27592vi02bgf257.apps.googleusercontent.com', '680952100943-cfo952brj8shv9jkm27592vi02bgf257@developer.gserviceaccount.com', 0, 0, 0, 1, 11),
+(7, 'facebook', 'Facebook', '344771765600578', 'e415ac92ecd027ce42807368c86b024f', 0, 0, 0, 1, 10),
+(8, 'twitter', 'Twitter', 'vIDuRd114M0Oas00482BnA', 'PlxqLbmxbOVDMyLYKZR0lYn52wh5gXnDyr2riXZ49U', 0, 0, 0, 1, 9),
+(9, 'renren', '人人网', '2c26d3f2b5b74a6bb57c9a37f90713c7', 'b4ebad7a9fbb4249a205fbf0bc4e30fb', 0, 0, 0, 1, 6),
+(10, 'douban', '豆瓣', '0bfbad5fbb4ebd0c23f3081f31ec3724', 'dbba2d298df14196', 0, 0, 0, 1, 5),
+(11, 'sohu', '搜狐', 'zmvWNWORfLlyBY74yNHW', '1)G%MR8-y9VYcepuDU2i7FAdq9ukyW*0#jLzUzge', 0, 0, 0, 0, 2),
+(12, 'tq', '腾讯微博', '801368233', '1d762e807dcd70011cd9ec7483482362', 0, 0, 0, 1, 4),
+(13, 'taobao', '淘宝', '21535838', 'a1a3095864005cd64e156e2be8f48c7a', 0, 0, 0, 1, 7),
+(14, 'alipay', '支付宝', '2088002917452851', 'dot4vv3ejeqthpckjr976l9i87m61o2x ', 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -524,18 +589,25 @@ CREATE TABLE IF NOT EXISTS `oauth_users` (
   `token` varchar(255) NOT NULL,
   `uid` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- 转存表中的数据 `oauth_users`
 --
 
 INSERT INTO `oauth_users` (`id`, `uuid`, `name`, `email`, `oauth_id`, `token`, `uid`) VALUES
-(1, '5e253ec9db04eef82808739c8d5e5e1e', '轻飘如羽', 'info', 1, '6E1B6DF737828454D860E2D301DEB93B', '7CBA366530BEF6788F78D7B65FE7ACB0'),
+(1, 'ca5aa53daff89c61ea4f4f915d572456', '轻飘如羽', 'info', 1, '6E1B6DF737828454D860E2D301DEB93B', '7CBA366530BEF6788F78D7B65FE7ACB0'),
 (2, '8bb2a42140cb12e0b8c61b01fc977f61', 'Kang Sun', 'info', 3, 'EwBwAq1DBAAUGCCXc8wU/zFu9QnLdZXy+YnElFkAAVqQt5h3BvapDue0TPX0Xx13F3JboEkHBnQ7tghHfpT29h9f2AZ2eK6TO+4mfHS1MXvvu6sQwL4w6uX3eL6D0bdqpYDMGpnA2BqalluDpUsY12m3urjwYrD5QgsTlZkboTuwrNAcaG1bKTpAsfRTGFnOefMjYoqx8GaLsPPRcHIY5pXIhvCXZzblfI9SeMvYFwK8jrjGqeTG5Bz5KRPwAWq', '931daa896377cf86'),
 (3, '77a11ad27f15be9930c05243fb8b823a', 'mincms', 'info', 2, '1139f09e068368f7f2587db7a2a267b5ae8d4c82', '250463'),
-(4, '854be636ff6fa6563c5ce7eb74df6999', '一点太极', 'info', 4, '2.00YOPfkC0jgrMCd1e95fb0d89gnYFE', '2521807130'),
-(5, '9d864257ad72e0b391955341299ebda1', 'Sun Kang', 'yiiphp@gmail.com', 6, 'ya29.AHES6ZSMQt0AJuylQzJJTKlrlnYvC_3zagw6F1u6LremI30Bow', '107606802653868575024');
+(4, '86537a20fb664baa0e94035f76bfc881', '一点太极', 'info', 4, '2.00YOPfkC0jgrMCd1e95fb0d89gnYFE', '2521807130'),
+(5, '9d864257ad72e0b391955341299ebda1', 'Sun Kang', 'yiiphp@gmail.com', 6, 'ya29.AHES6ZSMQt0AJuylQzJJTKlrlnYvC_3zagw6F1u6LremI30Bow', '107606802653868575024'),
+(6, '4276a1a91f1a611a69a02045e9181f97', 'sunkang', 'info', 8, 'a:2:{i:0;s:50:"419402782-09j4FglcsGgyHijCOEzSEeINgR4pOwCkYcSsiZZL";i:1;s:41:"CMF0GayiQmDvNyLyrYNk1YL4bBPXdp9WPch8f82ic";}', '419402782'),
+(7, 'a21e1a2e0eca4b8be432f9dbe02544f6', 'Sun Kang', 'info', 7, 'CAAE5kW6eAUIBALSODeylM8iY7THhEqvQZAj07DC8PvjinSPHaVW6LtbuNsf0Wwp0Sb2klUJjV65h6fpZBBJ45oX82RzZAc74lBY28ylEZAk38NjY5RpEYkcYSflWZCH6aPPZCYUuuWvfQPZCMwNNunoZAXhZArwk77Px2jlmZCSeNJcAZDZD', '100003242705767'),
+(8, 'b8cb8defd7851adc42900eb75ea1e23d', '孙康 sunkang', 'info', 9, '236378|6.cf52e24a09e009fa1b2f8c8fbe2e4f63.2592000.1373000400-415916782', '415916782'),
+(9, '20da59fbdf058352e391f1dc26d5e195', '裴祖荫太极拳', 'info', 10, 'a567dcfe69bfda04f03796fb3d3f8e0c', '2795907'),
+(10, '35677732182ad94afe1f339ddbcb6f35', 'jackie68103403', 'info', 12, '14d7b24d7db72cd2d93d9e28d09f8e61', '62935ACE9997AD5BC3601948950FD16D'),
+(11, 'aa5356447c9a3ec1e047fcb3dd083504', 'fleaphp', 'info', 13, '620240468d1bdf4510c24f99ab940fb39ea2f4798589275115335192', '115335192'),
+(12, '35430899ea35e127228ae4cf2264753b', 'sunkangchina', 'sunkangchina@163.com', 5, '9c1a3cf2f68d9773492a881cdbdc6945', '2533229887485448906');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

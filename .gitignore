@@ -10,6 +10,7 @@ public/assets
 public/upload
 protected/modules/flickr
 protected/modules/document 
+protected/modules/oauth 
 protected/modules/svn
 protected/runtime
 public/themes/front
@@ -34,3 +35,5 @@ Thumbs.db
 /protected/modules/multisite
 
 /public/themes/ljftaichi.com
+
+/protected/modules/oauth

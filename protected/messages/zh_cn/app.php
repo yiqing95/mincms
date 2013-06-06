@@ -1,5 +1,17 @@
 <?php 
 return  array (
+  'sort success' => '排序成功',
+  'commented' => '已评论',
+  'commenting' => '评论中',
+  'comment have a rest' => '评论太快，不凡先坐下来喝杯茶',
+  'commit success' => '发表评论成功',
+  'comment body required' => '评论内容不能为空',
+  'logined' => '会员',
+  'document' => '文档',
+  'please login first' => '请先登录',
+  'display_raw' => '操作',
+  'sucessful' => '操作成功',
+  'update sucessful' => '更新成功',
   'form widget' => '表单',
   'return back' => '返回上一层',
   'link' => '链接',
@@ -131,5 +143,5 @@ return  array (
   'supper user can not delete' => '超级管理员不能删除滴！',
   'you can not remove yourself' => '想删除当前用户？是行不通的',
   'core module' => '内置模块',
-  'admin login'=>'管理员登录',
+  'admin login' => '管理员登录',
 );

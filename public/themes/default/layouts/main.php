@@ -26,6 +26,9 @@ $this->registerMetaTag(array('content'=>'自定义内容管理系统,支持多�
 	<title>MINCMS</title>
 	<?php $this->head(); ?>
 	<style>
+	.margin0{ 
+		margin-left: 0px;
+	}
     body {
         
       }
@@ -67,10 +70,18 @@ $this->registerMetaTag(array('content'=>'自定义内容管理系统,支持多�
 <?php $this->beginBody(); ?>
       <div class="masthead" style='position:relative'>
         <ul class="nav nav-pills pull-right" style="margin-right: 117px;">
-          <li class="active"><a href="<?php echo url('site/index');?>">Home</a></li>
-          <li><a href="#">MINCMS ON LINE</a></li>
-        <li><a href="<?php echo url('site/document');?>">Document</a></li>
-          <li><a href="<?php echo url('auth/open/login');?>">Login Admin</a></li>
+        <?php $active = \app\core\Menu::active();
+    	$menus = array(
+    		'site/index'=>'home',
+    		'document/site/index'=>'document',
+    		'auth/open/login'=>'admin login',
+    	);
+    	foreach($menus as $k=>$v){
+    	?>
+          <li <?php if($active && in_array($k,$active)){?> class="active" <?php }?>>
+            <a href="<?php echo url($k);?>"><?php echo __($v);?></a>
+           </li>
+        <?php }?>
         </ul>
         <h3 class="muted">MINCMS</h3>
         <?php if(\app\modules\member\Auth::check()){?>
@@ -102,8 +113,8 @@ z-index: 1000; "src="<?php echo base_url();?>img/fork.png"/></a>
 	<?php echo $content; ?>  
 	  
       <hr>
-	<?php $this->endBody(); ?>
-      <div class="footer">
+	<?php $this->endBody(); ?> 
+      <div class="footer" style="clear:both;">
         <address><strong>www.mincms.com</strong><br>  
 				Email: taichiquan@outlook.com<br></address>
       </div>

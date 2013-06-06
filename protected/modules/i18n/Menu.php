@@ -7,9 +7,7 @@ class Menu
 			'i18n'=>array('i18n/site/index'),  
 		);
 		
-		$menu['extend'] = array( 
-			'i18n database'=>array('i18n/database/index'),  
-		);
+	 
 		return $menu;
 	}
 }

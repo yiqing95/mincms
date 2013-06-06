@@ -6,10 +6,15 @@ public static function active($query)
 	$pid = (int)$_GET['pid']?:0;
     $query->andWhere('pid = '.$pid);
 }
+<div class='pagination'>
+<?php  echo \yii\widgets\LinkPager::widget(array(
+      'pagination' => $pages,
+  ));?>
+</div>
 * @author Sun < taichiquan@outlook.com >
 */
 class Pagination  
-{ 
+{  
 	static function run($model,$scope=null,$config=array('pageSize'=>10)){ 
 		$query = $model::find();
 		$countQuery = clone $query;

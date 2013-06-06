@@ -20,9 +20,7 @@ class SiteController extends FrontController
 		$this->active = 'site.index';  
 		echo $this->render('index');
 	} 
-	function actionDocument(){
-		echo $this->render('doc');
-	}
+ 
 	function actionPosts(){
 		$this->active = 'site.posts'; 
 		echo $this->render('posts');

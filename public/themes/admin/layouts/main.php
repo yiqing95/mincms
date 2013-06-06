@@ -20,19 +20,10 @@ js("$(function(){
 <head>
 	<meta charset="utf-8"/>
 	<title><?php echo __('backend admin'); ?></title>
-	<?php $this->head(); ?>
-	<style>
-      body {padding-top: 60px;}
-      .hander{cursor:pointer;}
-      .new_error{ 
-		background: #FBE6F2;
-		border: 1px solid #D893A1;
-		color: #333;
-		margin: 10px 0 5px 0;
-		padding: 10px; 
-      }
-      .form-actions{padding-left: 10px;}
-    </style>
+	<?php $this->head(); 
+	css_file('css/admin.css');
+	?>
+ 
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -64,7 +55,7 @@ js("$(function(){
 
  
     
-<div class="container">
+<div class="container" style="margin-top: 60px;">
 	<?php $this->beginBody(); ?>
   
 	<?php echo \yii\widgets\Breadcrumbs::widget(array(

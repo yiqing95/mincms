@@ -20,6 +20,38 @@ class DB{
 		return \Yii::$app->db->createCommand()
 			->insert($table,$data)->execute();   	
 	}
+	static function batchInsert($table, $columns, $rows){ 
+		return \Yii::$app->db->createCommand()
+			->batchInsert($table, $columns, $rows)->execute();   	
+	}
+	static function id(){ 
+		return \Yii::$app->db->getLastInsertID();
+	}
+	/** 
+	<div class='pagination'>
+	<?php  echo \yii\widgets\LinkPager::widget(array(
+	      'pagination' => $pages,
+	  ));?>
+	</div>
+	*/
+	static function pagination($table,$params=array(),$route=null){
+		$one = static::one($table,array(
+			'select'=>'count(*) count'
+		));
+		$count = $one['count'];
+		
+		$pages = new \yii\web\Pagination($count);
+		if($route)
+			$pages->route = $route;
+		$params['offset'] = $pages->offset;
+		$params['limit'] = $pages->limit; 
+     	$models = static::all($table,$params);
+     	return (object)array(
+			'pages'=>$pages,
+			'models'=>$models
+		);
+	}
+	
 	/**
 	*  
 	* 其中$condition

@@ -6,7 +6,7 @@
     <th><?php echo __($f);?></th>
     <?php }?>
     <?php if($delete || $update){?>
-	    <th style='width:40px; '>
+	    <th >
 	    
 	    </th>
     <?php }?>
@@ -41,7 +41,7 @@
 </table>
 <?php if($pages){?>
 	<div class='pagination'>
-	<?php  echo \yii\widgets\LinkPager::widget(array(
+	<?php  echo \app\core\LinkPager::widget(array(
 	      'pagination' => $pages,
 	  ));?>
 	</div>
