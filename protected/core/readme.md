@@ -1,6 +1,7 @@
 ### MINCMS \app\core namespace ,over write some widget and custom classes.
 - [MINCMS](http://www.mincms.com)
 - all of modules needs \app\core\ classes. such as DB.
+
 ```
 use app\core\DB;
 
@@ -13,8 +14,8 @@ DB::delete($table, $condition, &$params);
 
 ```
 
-```
 
+```
 DB::pagination($table,$params=array(),$route=null);
 will return array('pages' 'models')
 <div class='pagination'>
