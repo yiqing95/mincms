@@ -1,9 +1,0 @@
-slug:
-   html:textInput   
-name:
-   html:textInput
-memo:
-   html:textInput
-pid:
-   html:dropDownList
-   value:php:value
