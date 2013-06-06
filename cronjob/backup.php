@@ -3,6 +3,7 @@
 * 数据库备份
 */
 include 'mysql.php';
+ 
 $db->query("SHOW VARIABLES LIKE '%basedir%'");
 $row = $db->one();
 foreach($row as $k=>$v){

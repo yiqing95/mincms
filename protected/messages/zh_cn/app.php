@@ -1,5 +1,9 @@
 <?php 
 return  array (
+  'redirect' => '跳转URL',
+  'disable host' => '禁用域名跳转',
+  'enable host' => '启用域名跳转',
+  'host' => '域名',
   'sort success' => '排序成功',
   'commented' => '已评论',
   'commenting' => '评论中',

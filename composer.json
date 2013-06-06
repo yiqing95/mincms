@@ -12,6 +12,7 @@
 	            
 	        ],
 	    	"files": [
+                    "protected/core/MinCache.php",
 	            "protected/core/helpers.php"
 	    	],
 	        "psr-0": {

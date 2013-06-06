@@ -12,7 +12,7 @@
 * @param  array $parmas 
 */
 function redirect($url,$parmas=null){ 
-	return Yii::$app->response->redirect($url,$parmas);
+	return \Yii::$app->response->redirect($url,$parmas);
 }
 function refresh(){ 
 	return Yii::$app->response->refresh();
@@ -183,6 +183,22 @@ function remove_cookie($name){
 	\Yii::$app->request->cookies->add($cookie);  
 }
 /**
+* 加载hook
+* @ $name 一般为 controller model
+*/
+function hook($name){
+	$hooks = cache_pre('hooks');
+	if(!$hooks) return;
+	$h = $hooks[$name];
+	if($h){
+		foreach($h as $li){
+			$cls = "\app\modules\\$li\\Hook";
+			$cls::$name();
+		} 
+	} 
+ 
+}
+/**
 * print_r
 * @param  string/object/array $str  
 */
@@ -195,21 +211,17 @@ function dump($str){
 * before app start run.
 * set cache
 */
-function cache_pre($name,$value=null){
- 
-	$file = __DIR__.'/../runtime/'.md5($name).'.php';
-	if(!$value){
-		if(!file_exists($file)) return false;
-		return unserialize(include $file);
-	} 
-	$str = "<?php return '";
-	$str .= serialize($value);
-	$str .= "';";
-	file_put_contents($file,$str);
- 
+function cache_pre($name,$value=null,$expre=null){ 
+ 	return MinCache::set($name,$value,$expre);
 }
-function auth(){
-	
+function cache_pre_delete($name){ 
+ 	return MinCache::delete($name);
+}
+function cache($name,$value=null,$expire=null){ 
+	if(!$expire) $expire = 86400*360*360;
+	$data = \Yii::$app->cache->get($name);
+	if(!$value) return $data; 
+	\Yii::$app->cache->set($name,$value,$expire); 
 }
 /**
 * 判断是否是只能操作自己添加的记录

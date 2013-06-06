@@ -3,7 +3,7 @@
 * 数据库操作类
 */
 error_reporting(E_ALL & ~(E_STRICT | E_NOTICE));
-error_reporting(0);
+ 
  
 $main = include dirname(__FILE__).'/../protected/config/main.php';
  
@@ -38,4 +38,5 @@ class db{
 		return $data;
 	}
 }
+function cache_pre(){}
 

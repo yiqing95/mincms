@@ -15,4 +15,5 @@ color: #333;
 margin: 10px 0 5px 0;
 padding: 10px; 
 }
+.btn a,.label a{color:#fff;}
 .form-actions{padding-left: 10px;}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 06 月 06 日 08:03
+-- 生成日期: 2013 年 06 月 06 日 10:00
 -- 服务器版本: 5.5.8-log
 -- PHP 版本: 5.4.3
 
@@ -288,7 +288,14 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `display` tinyint(4) NOT NULL DEFAULT '1',
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `comment`
+--
+
+INSERT INTO `comment` (`id`, `slug_id`, `body_id`, `mid`, `created`, `display`, `sort`) VALUES
+(1, 1, 1, 6, 1370506073, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -301,7 +308,15 @@ CREATE TABLE IF NOT EXISTS `comment_body` (
   `body` text NOT NULL,
   `slug` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `comment_body`
+--
+
+INSERT INTO `comment_body` (`id`, `body`, `slug`) VALUES
+(1, '<p>sf</p>', '4046acfcb2f5a3b0ef6960bca959cba5'),
+(2, '<p>fsdfsdf</p>', '47f48f0a0661a5589ba3391cbc203df4');
 
 -- --------------------------------------------------------
 
@@ -328,7 +343,14 @@ CREATE TABLE IF NOT EXISTS `comment_slug` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_2` (`name`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `comment_slug`
+--
+
+INSERT INTO `comment_slug` (`id`, `name`) VALUES
+(1, 'document');
 
 -- --------------------------------------------------------
 
@@ -388,17 +410,20 @@ CREATE TABLE IF NOT EXISTS `core_config` (
   `slug` varchar(200) NOT NULL,
   `body` text NOT NULL,
   `memo` varchar(255) NOT NULL,
+  `lock` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- 转存表中的数据 `core_config`
 --
 
-INSERT INTO `core_config` (`id`, `slug`, `body`, `memo`) VALUES
-(1, 'title', '<p>标题</p>', '网站标题'),
-(2, 'front_footer', '<address><strong>liujifatiachi.com</strong><br> \r\n				Xianyang Park HuaiHai Road<br> \r\n				Email: liujifa@outlook.com<br></address>\r\n', '前端页脚'),
-(3, 'front_title', '<p>Master JiFa Liu</p>', '');
+INSERT INTO `core_config` (`id`, `slug`, `body`, `memo`, `lock`) VALUES
+(1, 'title', '<p>标题</p>', '网站标题', 0),
+(2, 'front_footer', '<address><strong>liujifatiachi.com</strong><br> \r\n				Xianyang Park HuaiHai Road<br> \r\n				Email: liujifa@outlook.com<br></address>\r\n', '前端页脚', 0),
+(3, 'front_title', '<p>Master JiFa Liu</p>', '', 0),
+(4, 'host', '<p>1</p>', '', 0),
+(5, 'module_host', '1', '', 0);
 
 -- --------------------------------------------------------
 
@@ -415,7 +440,7 @@ CREATE TABLE IF NOT EXISTS `core_modules` (
   `active` tinyint(1) NOT NULL,
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- 转存表中的数据 `core_modules`
@@ -433,14 +458,14 @@ INSERT INTO `core_modules` (`id`, `name`, `label`, `memo`, `core`, `active`, `so
 (9, 'document', 'document', '手册', 0, 1, 0),
 (10, 'file', 'file', '文件', 0, 1, 0),
 (11, 'image', 'image', '图片', 0, 1, 0),
-(20, 'emailcontact', 'emailcontact', '获取邮件联系人', 0, 1, 0),
 (13, 'menu', 'menu', '菜单', 0, 1, 0),
 (14, 'payment', 'payment', '支付', 0, 1, 0),
 (15, 'svn', 'svn', 'SVN同步', 0, 1, 0),
 (16, 'tag', 'tag', '标签云', 0, 1, 0),
 (17, 'taxonomy', 'taxonomy', '分类', 0, 1, 0),
 (18, 'i18n', 'i18n', '多语言', 0, 1, 0),
-(19, 'multisite', 'multisite', '多站点', 0, 1, 0);
+(19, 'multisite', 'multisite', '多站点', 0, 1, 0),
+(21, 'host', 'host', '设置域名自动跳转', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -533,6 +558,28 @@ CREATE TABLE IF NOT EXISTS `file_ext` (
   `fid` int(11) NOT NULL,
   PRIMARY KEY (`width`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `host`
+--
+
+CREATE TABLE IF NOT EXISTS `host` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) NOT NULL,
+  `redirect` varchar(255) NOT NULL,
+  `display` tinyint(4) NOT NULL DEFAULT '1',
+  `sort` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `host`
+--
+
+INSERT INTO `host` (`id`, `url`, `redirect`, `display`, `sort`) VALUES
+(1, 'www.mincms.com', 'mincms.com', 1, 0);
 
 -- --------------------------------------------------------
 
