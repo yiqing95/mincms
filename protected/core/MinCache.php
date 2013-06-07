@@ -11,21 +11,21 @@ class MinCache{
 	static $type;
 	static $obj;
 	static $file;
-	static $expre;
-	static function set($name,$value,$expre=null){
-		static::$expre = $expre?:86400*365*365;
+	static function set($name,$value){
 		if(extension_loaded('memcache')){ 
-	 		$memcache = memcache_connect("127.0.0.1", 11211);   
-	 		static::$type = 'memcache';
-	 		static::$obj = $memcache;
-			if($value)
-				$memcache->add($name, $value, false, static::$expre );
-			else
-				return $memcache->get($name);
+			if(!static::$obj){
+				static::$obj = new Memcache;
+				static::$obj->connect('127.0.0.1', 11211) or die ("memcache is enable but not work, 127.0.0.1 11211");  
+		 		static::$type = 'memcache'; 
+	 		}
+			if($value){
+				static::$obj->set($name, $value ,false ,0 ); 
+			}else
+				return static::$obj->get($name);
 	 	}elseif(extension_loaded('apc')){ 
 	 		static::$type = 'apc';
 			if($value)
-				apc_add($name, $value,static::$expre);
+				apc_add($name, $value);
 			else
 				return apc_fetch($name);
 	 	}

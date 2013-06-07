@@ -29,7 +29,7 @@ class DB{
 	}
 	/** 
 	<div class='pagination'>
-	<?php  echo \yii\widgets\LinkPager::widget(array(
+	<?php  echo \app\core\LinkPager::widget(array(
 	      'pagination' => $pages,
 	  ));?>
 	</div>
@@ -40,7 +40,7 @@ class DB{
 		));
 		$count = $one['count'];
 		
-		$pages = new \yii\web\Pagination($count);
+		$pages = new \yii\data\Pagination($count);
 		if($route)
 			$pages->route = $route;
 		$params['offset'] = $pages->offset;

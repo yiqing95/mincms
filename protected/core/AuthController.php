@@ -12,10 +12,17 @@ class AuthController extends Controller
 	function init(){
 		parent::init(); 
 	 	language('language_'); 
+	 	
 	 	if(\Yii::$app->user->isGuest){
 			flash('error',__('login first'));   
 			redirect(url('auth/open/login'));
 		}     
+		/*
+		* load modules 
+		* ╪стьдё©И
+		*/
+		if(!cache_pre('all_modules'))
+			\app\core\Modules::load();  
 	  
 	}
 	/**

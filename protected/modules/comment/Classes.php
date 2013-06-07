@@ -13,7 +13,7 @@ class Classes
 	* 发布评论
 	*/
 	static function comment($slug,$body,$display=1){
-		$minute = 5;//几分钟内不能重复评论
+		$minute = 3;//几分钟内不能重复评论
 		if(!$body || !$slug) return __('comment body required');
 		if(!Auth::id()) return __('please login first');
 		$sid = static::slug($slug);
@@ -43,14 +43,26 @@ class Classes
 		return $one['id'];
 	}
  	static function get_slug($name){
- 		return DB::one('comment_slug',array(
-			'where'=>array('name'=>$name)
-		));
+ 		$id = 'database#comment_slug';
+ 		$one = cache($id);
+ 		if(!$one){
+	 		$one = DB::one('comment_slug',array(
+				'where'=>array('name'=>$name)
+			));
+			cache($id,$one);
+		}
+		
+		return $one;
  	}
  	static function get_body($id){
- 		$one = DB::one('comment_body',array(
-			'where'=>array('id'=>$id)
-		));
+ 		$cacheId = 'database#comment_body_'.$id;
+ 		$one = cache($cacheId);
+ 		if(!$one){
+	 		$one = DB::one('comment_body',array(
+				'where'=>array('id'=>$id)
+			)); 
+			cache($cacheId,$one);
+		} 
 		return $one['body'];
  	}
 	/**
@@ -69,9 +81,14 @@ class Classes
 	*/
 	static function body($body){ 
 		$slug = md5(trim($body));
-		$one = DB::one('comment_body',array(
-			'where'=>array('slug'=>$slug)
-		));
+		$cacheId = 'database#comment_body_slug_'.$slug;
+ 		$one = cache($cacheId);
+ 		if(!$one){
+			$one = DB::one('comment_body',array(
+				'where'=>array('slug'=>$slug)
+			));
+			cache($cacheId,$one);
+		}
 		if($one) return $one['id'];
 		DB::insert('comment_body',array(
 			'slug'=>$slug,

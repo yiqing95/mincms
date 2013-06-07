@@ -66,7 +66,7 @@ $this->registerMetaTag(array('content'=>'自定义内容管理系统,支持多�
     </style>
 </head>
 <body  >
-<div class="container-narrow">
+<div class="container">
 <?php $this->beginBody(); ?>
       <div class="masthead" style='position:relative'>
         <ul class="nav nav-pills pull-right" style="margin-right: 117px;">
@@ -112,7 +112,7 @@ z-index: 1000; "src="<?php echo base_url();?>img/fork.png"/></a>
  
 	<?php echo $content; ?>  
 	  
-      <hr>
+    
 	<?php $this->endBody(); ?> 
       <div class="footer" style="clear:both;">
         <address><strong>www.mincms.com</strong><br>  

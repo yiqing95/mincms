@@ -8,10 +8,8 @@ formbuiler
 runtime
 public/assets
 public/upload
-protected/modules/flickr
-protected/modules/document 
-protected/modules/oauth 
-protected/modules/svn
+protected/modules/flickr 
+protected/modules/oauth  
 protected/runtime
 public/themes/front
 public/themes/mincms
@@ -39,3 +37,5 @@ Thumbs.db
 /protected/modules/oauth
 
 /protected/modules/content
+
+/protected/modules/flickr

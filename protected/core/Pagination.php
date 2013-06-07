@@ -18,7 +18,7 @@ class Pagination
 	static function run($model,$scope=null,$config=array('pageSize'=>10)){ 
 		$query = $model::find();
 		$countQuery = clone $query;
-		$pages = new \yii\web\Pagination($countQuery->count(),$config);
+		$pages = new \yii\data\Pagination($countQuery->count(),$config);
 		$models = $query->offset($pages->offset)
 		  ->limit($pages->limit);
 		if($scope){

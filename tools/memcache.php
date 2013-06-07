@@ -18,9 +18,9 @@
 */
 
 $VERSION='$Id: memcache.php,v 1.1.2.3 2008/08/28 18:07:54 mikl Exp $';
-
-define('ADMIN_USERNAME','memcache'); 	// Admin Username
-define('ADMIN_PASSWORD','password');  	// Admin Password
+error_reporting(0);
+define('ADMIN_USERNAME','root'); 	// Admin Username
+define('ADMIN_PASSWORD','root');  	// Admin Password
 define('DATE_FORMAT','Y/m/d H:i:s');
 define('GRAPH_SIZE',200);
 define('MAX_ITEM_DUMP',50);

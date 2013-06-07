@@ -4,6 +4,10 @@
 * 加载模块
 */
 $modules = cache_pre('all_modules'); 
+//默认系统模块
+$modules['core'] = 1;
+$modules['auth'] = 1;
+ 
 $module['debug'] = array(
 	 'class' => "yii\debug\Module"
 );

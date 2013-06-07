@@ -36,7 +36,8 @@ if($form){
 		'models'=>$models,
 		'pages'=>$pages, 
 		'update'=>false,
-		'delete'=>false,
+		'delete'=>true,
+		'create'=>false, 
 		'fields'=>$colunm	
 	)); 
 	?>  

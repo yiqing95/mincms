@@ -55,7 +55,7 @@ function return_url($url=null){
 }
 
 function is_ajax(){ 
-	return \Yii::$app->request->isAjaxRequest ? true:false;
+	return \Yii::$app->request->isAjax ? true:false;
 }
 function ip(){
 	return \Yii::$app->request->userHostAddress;
@@ -211,14 +211,13 @@ function dump($str){
 * before app start run.
 * set cache
 */
-function cache_pre($name,$value=null,$expre=null){ 
- 	return MinCache::set($name,$value,$expre);
+function cache_pre($name,$value=null){ 
+ 	return MinCache::set($name,$value);
 }
 function cache_pre_delete($name){ 
  	return MinCache::delete($name);
 }
-function cache($name,$value=null,$expire=null){ 
-	if(!$expire) $expire = 86400*360*360;
+function cache($name,$value=null,$expire=0){  
 	$data = \Yii::$app->cache->get($name);
 	if(!$value) return $data; 
 	\Yii::$app->cache->set($name,$value,$expire); 
