@@ -6,6 +6,7 @@ cronjob/backup
 doc
 formbuiler
 runtime
+protected/controllers/DefaultController.php
 public/assets
 public/upload
 protected/modules/flickr 
@@ -39,3 +40,5 @@ Thumbs.db
 /protected/modules/content
 
 /protected/modules/flickr
+
+/public/imagine

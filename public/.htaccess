@@ -1,8 +1,7 @@
 RewriteEngine on
-
-# if a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
 
-# otherwise forward it to index.php
-RewriteRule . index.php
+RewriteCond %{REQUEST_FILENAME} !\.(jpg|jpeg|png|gif)$
+RewriteRule imagine/(.*)\.(jpg|jpeg|png|gif)$ /imagine.html?name=$1&ext=$2 [NC,R,L]  

@@ -237,3 +237,31 @@ function get_config($name){
 	$model = \app\modules\core\models\Config::find(array('slug'=>$name));
 	return $model->body;
 }
+/**
+* module_class('image.Classes.image',$file,$option);
+namespace app\modules\image;  
+class Classes
+{
+	 static function image($args){
+	    $file = $args[1];
+	    $option = $args[2]; 
+		if(is_array($option)){
+			$s = base64_encode(json_encode($option));
+		} 
+		return "/imagine/".$s.$file;
+	}
+} 
+*/
+function module_class(){
+	$args = func_get_args(); 
+	$classes = $args[0];
+	unset($args[0]);  
+	$arr = explode('.',$classes);
+	$module = $arr[0];
+	$class=$arr[1];
+	$method=$arr[2];
+	$cls = "\app\modules\\$module\\$class";
+	return $cls::$method($args);
+
+}
+

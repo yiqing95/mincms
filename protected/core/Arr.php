@@ -12,7 +12,7 @@ class Arr
 	static $_i = 0;
 	static $_j = 0;
 	static $tree; 
- 	static $deep = 0;
+ 	static $deep = 0; 
  	static function query($array){
  		return http_build_query($array);
  	}

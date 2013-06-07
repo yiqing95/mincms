@@ -14,45 +14,23 @@ class SiteController extends FrontController
 			),
 		);
 	}
-
+ 
 	public function actionIndex()
-	{   
+	{    
 		$this->active = 'site.index';  
 		echo $this->render('index');
 	} 
- 
-	function actionPosts(){
-		$this->active = 'site.posts'; 
-		echo $this->render('posts');
-	}
-	function actionMessage(){
-		$this->active = 'site.message'; 
-		echo $this->render('message');
-	}
-	function actionUs(){
-		$this->active = 'site.us'; 
-		echo $this->render('us');
-	}
-	function actionVideos(){
-		$this->active = 'site.videos'; 
-		echo $this->render('videos');
-	}
-	public function actionContact()
-	{
-		$model = new ContactForm;
-		if ($this->populate($_POST, $model) && $model->contact(Yii::$app->params['adminEmail'])) {
-			Yii::$app->session->setFlash('contactFormSubmitted');
-			Yii::$app->response->refresh();
-		} else {
-			echo $this->render('contact', array(
-				'model' => $model,
-			));
-		}
-	}
-
-	public function actionTest()
-	{
-		 
-	  	 
-	}
+ 	function actionTest(){
+ 		$a = array(
+			'resize'=>array(300,200),
+			'rotate'=>45,
+			'border'=>array(10,'red'),
+			'rounded'=>array(10, "tl tr"),
+		);
+		$file = '1.jpg'; 
+		$url = image($file,$a);
+		$this->active = 'site.test';  
+		echo $this->render('test',array('url'=>$url));
+ 	}
+	 
 }

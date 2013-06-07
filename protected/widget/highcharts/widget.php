@@ -1,4 +1,4 @@
-<?php namespace app\widget\redactor;  
+<?php namespace app\widget\highcharts;  
 use yii\helpers\Json;
 /**
 * 
@@ -11,12 +11,11 @@ class Widget extends \yii\base\Widget
 	function run(){  
 		 if($this->options)
 			$opts = Json::encode($this->options);
-		$base = publish(__DIR__.'/assets');
- 		css_file($base.'/redactor.css'); 
- 		js_file($base.'/redactor.zh.js'); 
+		$base = publish(__DIR__.'/assets');  
  		if(!$this->tag) return; 
  		js(" 
- 			$('".$this->tag."').redactor($opts); 
+ 			$('".$this->tag."').highcharts($opts); 
  		"); 
+ 		js_file($base.'/highcharts.js'); 
 	}
 }

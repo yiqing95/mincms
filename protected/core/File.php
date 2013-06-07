@@ -86,8 +86,17 @@ class File extends \yii\helpers\Html
 		@unlink($old);
 		return $row;
 	}
+	static function name($name){ 
+		return substr($name,0,strrpos($name,'.')); 
+	}
+	static function ext($name){
+		return '.'.static::extension($name);
+	}
 	static function extension($name){ 
 		return substr($name,strrpos($name,'.')+1); 
+	}
+	static function dir($file_name){ 
+		return substr($file_name,0, strrpos($file_name,'/'));
 	}
 	static function size($filesize) {
 		 $filesize =  File::size($filesize);

@@ -71,7 +71,7 @@ return array(
 				* default router
 				*/
 				'admin'=>'core/config/index',
-				'image'=>'image/site/index',
+				'imagine'=>'image/site/index',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),  
 		), 

@@ -3,10 +3,8 @@
         <h1>MINCMS on Yii 2</h1>
         <p class="lead">VERY POWERFUL CONTENT MANAGE SYSTEM</p>
         <a class="btn btn-large btn-success" href="#">Comeing Soon ON Developing...</a>
-      </div>
- 
-      <hr>
-
+      </div> 
+      <hr> 
       <div class="row-fluid marketing">
         <div class="span6">
           <h4>Modules</h4>
