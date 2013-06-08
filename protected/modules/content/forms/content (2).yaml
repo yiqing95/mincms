@@ -1,0 +1,6 @@
+username:
+   html:textInput  
+password:
+   html:passwordInput
+email:
+   html:textInput

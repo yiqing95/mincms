@@ -1,22 +1,7 @@
-# phpstorm project files
-.idea
-/composer.lock
-/cronjob/backup
-/.svn  
-vendor
-# netbeans project files
-nbproject
-
-# zend studio for eclipse project files
-.buildpath
-.project
-.settings
-
 # windows thumbnail cache
 Thumbs.db 
 /formbuiler
 /protected/modules/document
-/protected/modules/multisite
 /public/themes/ljftaichi.com 
 /public/imagine
 /protected/controllers/DefaultController.php
@@ -26,3 +11,8 @@ Thumbs.db
 /public/themes/front
 /public/themes/mincms
 
+/.svn
+/vendor
+/cronjob/backup
+/composer.lock
+/public/themes/ljftaichi.com
