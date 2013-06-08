@@ -4,7 +4,7 @@
 *  如是会员才能看到的 extends app\modules\member\AuthController
 *  如是管理员才能看到的 extends \app\core\AuthController
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class SiteController extends \app\core\AuthController
 { 

@@ -2,7 +2,7 @@
 use app\modules\member\Auth;
 /**
  *  
- * @author Sun < taichiquan@outlook.com >
+ * @author Sun < mincms@outlook.com >
  * @Coprighty  http://mincms.com
  */
 class LogoutController extends \app\core\FrontController

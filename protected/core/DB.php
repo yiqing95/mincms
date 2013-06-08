@@ -3,7 +3,7 @@
 * 具体参数可参考
 * https://github.com/yiisoft/yii2/blob/master/framework/yii/db/QueryBuilder.php
 *
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 * @date 2013
 */
 class DB{

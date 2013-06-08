@@ -9,7 +9,7 @@ use app\core\Arr;
 
 use \app\modules\email\Mailer;
 Mailer::send($title,$body,$to_array,$attachment=null); 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Mailer
 {

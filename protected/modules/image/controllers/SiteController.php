@@ -28,7 +28,7 @@ compose.json
 
 "imagine/Imagine":"dev-master"
 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class SiteController extends FrontController
 { 

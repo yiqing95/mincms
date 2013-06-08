@@ -2,7 +2,7 @@
 /**
 * send mailer log
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
  
 class Send extends \app\core\ActiveRecord 

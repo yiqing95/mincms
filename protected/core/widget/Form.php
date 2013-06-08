@@ -24,7 +24,7 @@ function value(){
 	}
 	return $out;
 }
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Form extends \yii\base\Widget
 { 

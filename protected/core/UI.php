@@ -2,7 +2,7 @@
 use yii\helpers\Json;
 /**
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 * @date 2013
 */
 class UI

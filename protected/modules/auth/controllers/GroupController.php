@@ -5,7 +5,7 @@ use \app\core\Arr;
 /**
 *  ÓÃ»§×é
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class GroupController extends \app\core\AuthController
 { 

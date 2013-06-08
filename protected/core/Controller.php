@@ -3,7 +3,7 @@ use yii\base\Theme;
 /**
 *  default controller
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Controller extends \yii\web\Controller
 { 

@@ -3,7 +3,7 @@ namespace app\modules\member;
 use app\core\DB;
 /**
  *  
- * @author Sun < taichiquan@outlook.com >
+ * @author Sun < mincms@outlook.com >
  * @Coprighty  http://mincms.com
  */
 class Auth

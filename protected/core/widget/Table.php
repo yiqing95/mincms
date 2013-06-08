@@ -2,7 +2,7 @@
 /**
 *  render tables
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Table extends \yii\base\Widget
 { 

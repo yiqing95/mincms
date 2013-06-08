@@ -3,7 +3,7 @@ use app\modules\core\models\Config;
 /**
 *   
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class ConfigController extends \app\core\AuthController
 { 

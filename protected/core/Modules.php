@@ -1,7 +1,7 @@
 <?php namespace app\core;  
 /** 
 * 自动加载模块，主要改变 @app/config/main.php 中模块设置
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 * @date 2013
 */
 class Modules{

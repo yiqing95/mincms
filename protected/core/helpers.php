@@ -2,7 +2,7 @@
 /**
 * Yii 2.0 Helpers
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 * @since Yii 2.0
 */
 

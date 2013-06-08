@@ -7,7 +7,7 @@
 * </pre>
 * need't add code to <body
 * <body  onload="prettyPrint()">
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Widget extends \yii\base\Widget
 {  

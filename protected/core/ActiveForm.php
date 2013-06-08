@@ -1,7 +1,7 @@
 <?php namespace app\core;  
 /**
 *    
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 * 
 */
 class ActiveForm extends \yii\widgets\ActiveForm

@@ -2,7 +2,7 @@
 /**
 *  auth module default controller
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class SiteController extends \app\core\AuthController
 { 

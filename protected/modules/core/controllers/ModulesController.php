@@ -1,7 +1,7 @@
 <?php namespace app\modules\core\controllers; 
 use app\modules\core\models\Modules;
 /**  
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class ModulesController extends \app\core\AuthController
 { 

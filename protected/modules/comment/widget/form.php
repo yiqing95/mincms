@@ -3,7 +3,7 @@ use app\core\DB;
 use app\modules\comment\Classes;
 /**
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Form extends \yii\base\Widget
 { 

@@ -2,7 +2,7 @@
 /**
 *  extend yii\helpers\Html
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Html extends \yii\helpers\Html
 { 

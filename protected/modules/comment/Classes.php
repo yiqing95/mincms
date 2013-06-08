@@ -4,7 +4,7 @@ use app\core\DB;
 use app\modules\member\Auth;
 /**
  *  
- * @author Sun < taichiquan@outlook.com >
+ * @author Sun < mincms@outlook.com >
  * @Coprighty  http://mincms.com
  */
 class Classes

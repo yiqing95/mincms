@@ -4,7 +4,7 @@ use app\core\DB;
 /**
 *   
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class AjaxController extends FrontController
 { 

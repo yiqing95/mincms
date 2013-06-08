@@ -116,7 +116,7 @@ z-index: 1000; "src="<?php echo base_url();?>img/fork.png"/></a>
 	<?php $this->endBody(); ?> 
       <div class="footer" style="clear:both;">
         <address><strong>www.mincms.com</strong><br>  
-				Email: taichiquan@outlook.com<br></address>
+				Email: mincms@outlook.com<br></address>
       </div>
 
     </div> <!-- /container --> 

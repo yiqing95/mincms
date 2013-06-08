@@ -2,7 +2,7 @@
 /**
 *  管理员管理
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class UserController extends \app\core\AuthController
 { 

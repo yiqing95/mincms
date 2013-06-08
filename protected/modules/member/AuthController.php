@@ -2,7 +2,7 @@
 /**
 *  会员权限
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */ 
 class AuthController extends Controller
 { 

@@ -1,7 +1,7 @@
 <?php namespace app\widget\plupload;  
 /**
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Widget extends \yii\base\Widget
 {  

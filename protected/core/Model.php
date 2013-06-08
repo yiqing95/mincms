@@ -2,7 +2,7 @@
 /**
 *   
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Model extends \yii\base\Model
 { 

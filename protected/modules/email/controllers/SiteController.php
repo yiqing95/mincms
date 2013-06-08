@@ -1,7 +1,7 @@
 <?php namespace app\modules\email\controllers; 
 use  app\modules\email\models\Send;
 /**  
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class SiteController extends \app\core\AuthController
 {  

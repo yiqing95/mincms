@@ -11,7 +11,7 @@ public static function active($query)
       'pagination' => $pages,
   ));?>
 </div>
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Pagination  
 {  

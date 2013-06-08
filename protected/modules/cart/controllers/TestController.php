@@ -1,7 +1,7 @@
 <?php namespace app\modules\cart\controllers; 
 /**
 *   
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class TestController extends \app\core\AuthController
 { 

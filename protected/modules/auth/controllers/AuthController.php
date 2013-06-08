@@ -6,7 +6,7 @@ use app\core\DB;
 /**
 * generate access lists
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class AuthController extends \app\core\AuthController
 { 

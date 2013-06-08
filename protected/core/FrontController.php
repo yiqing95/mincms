@@ -2,7 +2,7 @@
 /**
 *  front controller
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class FrontController extends Controller
 { 

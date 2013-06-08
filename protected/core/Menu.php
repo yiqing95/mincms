@@ -8,7 +8,7 @@ use app\core\Arr;
 				'submenuTemplate'=>'<ul class="dropdown-menu">{items}</ul>',
 				'items' => app\core\Menu::get(),
 			)); ?>
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 class Menu
 { 

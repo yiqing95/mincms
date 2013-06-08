@@ -2,7 +2,7 @@
 /** 
 $file = Csv::write($table,$insert);
 Csv::insert($table,'value',$file);
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 * @date 2013
 */
 class Csv{

@@ -3,7 +3,7 @@
 * 在框架运行前
 * cache_pre($name,$value,$expre);
 * cache_pre_delete($name);
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 * @since Yii 2.0
 */
  

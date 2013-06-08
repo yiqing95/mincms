@@ -2,7 +2,7 @@
 /**
 *  veryone can visit 
 * 
-* @author Sun < taichiquan@outlook.com >
+* @author Sun < mincms@outlook.com >
 */
 use app\core\FrontController;
 use app\modules\auth\models\LoginForm; 
