@@ -9,8 +9,6 @@ runtime
 protected/controllers/DefaultController.php
 public/assets
 public/upload
-protected/modules/flickr 
-protected/modules/oauth  
 protected/runtime
 public/themes/front
 public/themes/mincms
