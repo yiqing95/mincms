@@ -1,8 +1,8 @@
 # phpstorm project files
 .idea
-composer.lock
-cronjob/backup
-.svn  
+/composer.lock
+/cronjob/backup
+/.svn  
 vendor
 # netbeans project files
 nbproject
@@ -19,10 +19,10 @@ Thumbs.db
 /protected/modules/multisite
 /public/themes/ljftaichi.com 
 /public/imagine
-
 /protected/controllers/DefaultController.php
 /public/assets
 /public/upload
 /protected/runtime
 /public/themes/front
 /public/themes/mincms
+
