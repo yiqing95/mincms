@@ -24,9 +24,7 @@ RewriteCond %{REQUEST_FILENAME} !\.(jpg|jpeg|png|gif)$
 RewriteRule imagine/(.*)\.(jpg|jpeg|png|gif)$ /imagine/$1/$2 [NC,R,L]  
 
 
-compose.json 
-
-"imagine/Imagine":"dev-master"
+  
 
 * @author Sun < mincms@outlook.com >
 */
@@ -71,13 +69,13 @@ class SiteController extends FrontController
 					break;
 				case 'crop': 
 					//crop(20, 20, 180, 180);
-					$imagine = $imagine->resize($v[0], $v[1], $v[3], $v[4]);
+					$imagine = $imagine->crop($v[0], $v[1], $v[3], $v[4]);
 					break;
 				case 'crop_resize':
-					$imagine = $imagine->resize($v[0], $v[1]);
+					$imagine = $imagine->crop_resize($v[0], $v[1]);
 					break;
 				case 'rotate': 
-					$imagine = $imagine->resize($v);
+					$imagine = $imagine->rotate($v);
 					break;
 				case 'flip':
 					//vertical horizontal both

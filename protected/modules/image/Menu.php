@@ -4,7 +4,7 @@ class Menu
 {
 	static function add(){ 
 		$menu['system'] = array( 
-			'image'=>array('image/site/index'),   
+			'image cache'=>array('image/admin/index'),   
 		); 
 		return $menu;
 	}

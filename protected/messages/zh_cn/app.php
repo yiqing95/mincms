@@ -1,5 +1,6 @@
 <?php 
 return  array (
+  'description' => '描述',
   'redirect' => '跳转URL',
   'disable host' => '禁用域名跳转',
   'enable host' => '启用域名跳转',

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 06 月 06 日 10:00
--- 服务器版本: 5.5.8-log
--- PHP 版本: 5.4.3
+-- 生成日期: 2013 年 06 月 09 日 06:20
+-- 服务器版本: 5.5.24-log
+-- PHP 版本: 5.3.13
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -580,6 +580,20 @@ CREATE TABLE IF NOT EXISTS `host` (
 
 INSERT INTO `host` (`id`, `url`, `redirect`, `display`, `sort`) VALUES
 (1, 'www.mincms.com', 'mincms.com', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `image`
+--
+
+CREATE TABLE IF NOT EXISTS `image` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slug` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `memo` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

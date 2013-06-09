@@ -1,15 +1,18 @@
 ### Image size crop etc
-- [imagine](http://imagine.readthedocs.org/en/latest/)
-- [Imagine on GIT](https://github.com/avalanche123/Imagine)
+- [fuelphp image](http://www.fuelphp.com/docs/classes/image.html) 
 
 how to use
 
 ```
 $a = array(
-	'resize'=>array(300,200)
+	'resize'=>array(300,200),
+	'rotate'=>45,
+	'border'=>array(10,'red'),
+	'rounded'=>array(10, "tl tr"),
 );
-$file = '2013/05/29/2.jpg'; 
+$file = '1.jpg'; 
 $url = image($file,$a);
+ 
 
 <?php 
 use yii\helpers\Html;
@@ -32,18 +35,12 @@ next you can ignore, all config is settings default.
 config : add code to <code>.htaccess</code>
 
 ```
-.htaccess
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !\.(jpg|jpeg|png|gif)$
-RewriteRule imagine/(.*)\.(jpg|jpeg|png|gif)$ /imagine/$1/$2 [NC,R,L]  
-
-
-compose.json 
-
-"imagine/Imagine":"dev-master"
+RewriteRule imagine/(.*)\.(jpg|jpeg|png|gif)$ /imagine.html?name=$1&ext=$2 [NC,R,L]  
 
 ```
